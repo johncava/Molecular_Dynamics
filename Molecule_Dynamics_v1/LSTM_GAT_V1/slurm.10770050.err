@@ -1,0 +1,16 @@
+Traceback (most recent call last):
+  File "/home/jcava/Molecular_Dynamics/Molecule_Dynamics_v1/LSTM_GAT_V1/lstm-gat.py", line 129, in <module>
+    lstm = LSTM(input_size, hidden_size)
+  File "/home/jcava/Molecular_Dynamics/Molecule_Dynamics_v1/LSTM_GAT_V1/lstm-gat.py", line 102, in __init__
+    self.lstm = nn.LSTM(input_size,hidden_size,num_layers=num_layers).cuda()
+  File "/home/jcava/.conda/envs/pytorch-geometric/lib/python3.9/site-packages/torch/nn/modules/module.py", line 637, in cuda
+    return self._apply(lambda t: t.cuda(device))
+  File "/home/jcava/.conda/envs/pytorch-geometric/lib/python3.9/site-packages/torch/nn/modules/rnn.py", line 182, in _apply
+    ret = super(RNNBase, self)._apply(fn)
+  File "/home/jcava/.conda/envs/pytorch-geometric/lib/python3.9/site-packages/torch/nn/modules/module.py", line 552, in _apply
+    param_applied = fn(param)
+  File "/home/jcava/.conda/envs/pytorch-geometric/lib/python3.9/site-packages/torch/nn/modules/module.py", line 637, in <lambda>
+    return self._apply(lambda t: t.cuda(device))
+  File "/home/jcava/.conda/envs/pytorch-geometric/lib/python3.9/site-packages/torch/cuda/__init__.py", line 172, in _lazy_init
+    torch._C._cuda_init()
+RuntimeError: No CUDA GPUs are available
