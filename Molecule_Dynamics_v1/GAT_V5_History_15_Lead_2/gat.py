@@ -59,7 +59,7 @@ X = X[5000:10001,:,:]
 #X[:,:,2:3] = X[:,:,2:3] / 10.0
 
 # Sample down the amount of sequenced frames from 20K to 2K
-X# = X[::10]
+#X = X[::10]
 #print(X.shape)
 
 ###
