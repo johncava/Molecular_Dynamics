@@ -21,11 +21,11 @@ parser.add_argument('--num_particles', type=int, default=40, help='number of par
 #parser.add_argument('--channel_size', type=int, default=42,help='input channel size')
 parser.add_argument('--hidden_size', type=int,default=128,help='hidden size')
 parser.add_argument('--output_size',type=int,default=3,help='output size')
-parser.add_argument('--history_size',type=int,default=5,help='history size')
+parser.add_argument('--history_size',type=int,default=10,help='history size')
 parser.add_argument('--lead_time',type=int,default=1,help='lead time')
 parser.add_argument('--M',type=int,default=5,help='M number of Graph Processors')
 parser.add_argument('--split',type=float,default=0.8,help='split percentage')
-parser.add_argument('--lr',type=float,default=1e-3,help='learning rate')
+parser.add_argument('--lr',type=float,default=1e-2,help='learning rate')
 parser.add_argument('--max_epochs',type=int,default=2,help='max epochs')
 
 parser.add_argument('--k',type=int,default=3,help='k nearest neighbors')
@@ -51,7 +51,7 @@ X = X_positions[5000:10001,:,:]
 #X[:,:,2:3] = X[:,:,2:3] / 10.0
 
 # Sample down the amount of sequenced frames from 20K to 2K
-#X = X[::10]
+X = X[::10]
 #print(X.shape)
 
 ###
@@ -147,7 +147,7 @@ class GATDecoder(torch.nn.Module):
         self.gat1 = GATConv(in_channels, out_channels)
     
     def forward(self, x, edge_index):
-        return self.gat1(x=x, edge_index=edge_index).sigmoid()
+        return self.gat1(x=x, edge_index=edge_index)
 
 class GATProcessor(torch.nn.Module):
 
@@ -205,6 +205,8 @@ for epoch in range(max_epochs):
         transform = T.Distance(norm=True)
         x = transform(x)
 
+        x.x = x.x.pow(2)
+
         acceleration = torch.tensor(acceleration).float().cuda()
         #print(x)
 
@@ -260,6 +262,8 @@ for data in copy_dataset:
     transform = T.Distance(norm=True)
     x = transform(x)
 
+    x.x = x.x.pow(2)
+
     ##
     # GAT Encoder
     ##
@@ -310,6 +314,6 @@ print("=> Finished Generation <=")
 # Save models
 ##
 
-torch.save(gat_encoder.state_dict(),'./gat_encoder.pt')
-torch.save(gat_processor.state_dict(),'./gat_processor,pt')
-torch.save(gat_decoder.state_dict(),'./gat_decoder.pt')
+#torch.save(gat_encoder.state_dict(),'./gat_encoder.pt')
+#torch.save(gat_processor.state_dict(),'./gat_processor.pt')
+#torch.save(gat_decoder.state_dict(),'./gat_decoder.pt')
