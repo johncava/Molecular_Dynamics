@@ -199,6 +199,9 @@ epoch_loss = []
 
 import time
 start = time.time()
+
+acceleration_factor = 1
+position_factor = 0.5
 for epoch in range(max_epochs):
 
     training_loss = []
@@ -261,21 +264,27 @@ for epoch in range(max_epochs):
 
         acceleration_predictions = acceleration_predictions[:-1]
         acceleration_predictions = torch.stack(acceleration_predictions).squeeze(1)
+        positon_predictions = torch.stack(positon_predictions).squeeze(1)
         accelerations = torch.tensor(accelerations).float().cuda()
         accelerations = accelerations.squeeze(1)
-        loss = F.mse_loss(acceleration_predictions,accelerations)
+        loss_acceleration = F.mse_loss(acceleration_predictions,accelerations)
+        loss_positions = F.mse_loss(positon_predictions,y)
+        print(loss_acceleration.item(), loss_positions.item())
+        loss = acceleration_factor*loss_acceleration + position_factor*loss_positions
         training_loss.append(loss.item())
         loss.backward()
         optimizer.step()
         del x
         del y
         del velocity_history
+        break
         #print(len(accelerations),len(acceleration_predictions))   
     epoch_loss.append(np.mean(training_loss))
     print('Epoch ' + str(epoch) + ' Loss: ' + str(epoch_loss[-1]))
 end = time.time()
 print('Done in ' + str(end-start) + 's')
 
+'''
 gat_encoder.eval()
 gat_decoder.eval()
 gat_processor.eval()
@@ -301,7 +310,7 @@ with torch.no_grad():
 
         positon_predictions = []
         acceleration_predictions = []
-        for i in range(lead_time):
+        for i in range(lead_time-1):
             #X_pos = x[::]
 
             #v_i = torch.tensor(velocity_history[:,3:6]).float().cuda()
@@ -371,3 +380,4 @@ with open(outName, "w") as outputfile:
             outputfile.write("  " + atomType + "\t" + line)
 
 print("=> Finished Generation <=")
+'''
