@@ -126,7 +126,6 @@ for epoch in range(max_epochs):
     for data in training_dataset:
         #print(data[0].shape,data[1].shape)
         x = torch.tensor(data[0]).float().cuda()
-        x_final = x[-1,:,:3]
         y = torch.tensor(data[1]).float().cuda()
         # Encoder
         output, (h0,c0) = encoder(x)
@@ -149,20 +148,22 @@ for epoch in range(max_epochs):
 end = time.time()
 print('Done in ' + str(end-start) + 's')
 
-'''
+
 ##
 # Run Testing
 ##
 predictions = []
 for data in testing_dataset:
-    # LSTM Encoder
     x = torch.tensor(data[0]).float().cuda()
-    x_final = x[-1,:,:3]
-    y = torch.tensor(data[1]).float().cuda()
-    # GAT Encoder
-    output = lstm(x)
-    x_final = x_final + output[-1,:,:]
-    x_final = x_final
+    # Encoder
+    output, (h0,c0) = encoder(x)
+    output = output[-1,:,:]
+    # Decoder
+    for index in range(lead_time):
+        output = output + torch.randn((1,number_of_particles,3)).cuda()
+        output, (h0,c0) = decoder(output, (h0,c0))
+    output = output.squeeze(0)
+    x_final = output
     predictions.append(x_final)
 
 predictions = torch.stack(predictions).squeeze(1)
@@ -193,4 +194,3 @@ with open(outName, "w") as outputfile:
             outputfile.write("  " + atomType + "\t" + line)
 
 print("=> Finished Generation <=")
-'''
