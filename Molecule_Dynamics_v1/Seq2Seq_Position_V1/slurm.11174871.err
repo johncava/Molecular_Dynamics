@@ -1,0 +1,4 @@
+Traceback (most recent call last):
+  File "/home/jcava/Molecular_Dynamics/Molecule_Dynamics_v1/Seq2Seq_Position_V1/lstm.py", line 138, in <module>
+    output = output + torch.randn((1,number_of_particles,5)).cuda()
+RuntimeError: The size of tensor a (3) must match the size of tensor b (5) at non-singleton dimension 2

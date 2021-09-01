@@ -21,8 +21,8 @@ X_angles = np.load('/home/jcava/10_deca_alanine/99/allPhiPsi.npy')
 X_angles = X_angles[::10] #/ 180.0
 
 # Concatenate the PhiPsi angles to the XYZ cartesian coordinates
-#X = np.concatenate((X_positions, X_angles), axis = -1)
-X = X_positions
+X = np.concatenate((X_positions, X_angles), axis = -1)
+#X = X_positions
 print(X.shape)
 
 #Pick the good region [5K-10K]
@@ -41,12 +41,13 @@ X = X[5000:10001,:,:]
 ###
 
 number_of_particles = 40 
-input_size = 3
+input_size = 5
 hidden_size = 3
+output_size = 5
 history_size = 15
 lead_time = 5
 M = 5
-num_layers = 1
+num_layers = 3
 
 # Create Training dataset from this sequence
 dataset = []
@@ -78,11 +79,13 @@ class Encoder(nn.Module):
         self.lstm = nn.LSTM(input_size,hidden_size,num_layers=num_layers).cuda()
         self.h0 = torch.randn((num_layers, number_of_particles, hidden_size)).cuda()
         self.c0 = torch.randn((num_layers, number_of_particles, hidden_size)).cuda()
+        self.mlp = nn.Linear(hidden_size, output_size).cuda()
 
     def forward(self,x):
         self.h0 = torch.randn((num_layers, number_of_particles, hidden_size)).cuda()
         self.c0 = torch.randn((num_layers, number_of_particles, hidden_size)).cuda()
         x , (h0,c0) = self.lstm(x,(self.h0, self.c0))
+        x = self.mlp(x)
         return x, (h0,c0)
 
 class Decoder(nn.Module):
@@ -90,10 +93,12 @@ class Decoder(nn.Module):
     def __init__(self, input_size, hidden_size):
         super(Decoder, self).__init__()
         self.lstm = nn.LSTM(input_size,hidden_size,num_layers=num_layers).cuda()
+        self.mlp = nn.Linear(hidden_size, output_size).cuda()
 
     def forward(self,x,hidden_state):
         h0,c0 = hidden_state
         x , (h0,c0) = self.lstm(x,(h0, c0))
+        x = self.mlp(x)
         return x, (h0,c0)
 
 ##
@@ -114,7 +119,7 @@ optimizer = optim.Adam(list(encoder.parameters()) + list(decoder.parameters()), 
 # Run Training
 ##
 
-max_epochs = 1
+max_epochs = 5
 
 epoch_loss = []
 
@@ -132,17 +137,16 @@ for epoch in range(max_epochs):
         output = output[-1,:,:]
         # Decoder
         for index in range(lead_time):
-            output = output + torch.randn((1,number_of_particles,3)).cuda()
+            output = output + torch.randn((1,number_of_particles,5)).cuda()
             output, (h0,c0) = decoder(output, (h0,c0))
         output = output.squeeze(0)
         # Loss computation
         optimizer.zero_grad()
-        y = y[:,:3]
+        #y = y[:,:3]
         loss = F.mse_loss(output, y)
         training_loss.append(loss.item())
         loss.backward()
         optimizer.step()
-        break
     epoch_loss.append(np.mean(training_loss))
     print('Epoch ' + str(epoch) + ' Loss: ' + str(epoch_loss[-1]))
 end = time.time()
@@ -160,10 +164,10 @@ for data in testing_dataset:
     output = output[-1,:,:]
     # Decoder
     for index in range(lead_time):
-        output = output + torch.randn((1,number_of_particles,3)).cuda()
+        output = output + torch.randn((1,number_of_particles,5)).cuda()
         output, (h0,c0) = decoder(output, (h0,c0))
     output = output.squeeze(0)
-    x_final = output
+    x_final = output[:,:3]
     predictions.append(x_final)
 
 predictions = torch.stack(predictions).squeeze(1)

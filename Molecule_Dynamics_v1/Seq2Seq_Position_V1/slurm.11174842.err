@@ -1,0 +1,16 @@
+Traceback (most recent call last):
+  File "/home/jcava/Molecular_Dynamics/Molecule_Dynamics_v1/Seq2Seq_Position_V1/lstm.py", line 139, in <module>
+    output, (h0,c0) = decoder(output, (h0,c0))
+  File "/home/jcava/.conda/envs/pytorch-geometric/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1051, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/home/jcava/Molecular_Dynamics/Molecule_Dynamics_v1/Seq2Seq_Position_V1/lstm.py", line 98, in forward
+    x , (h0,c0) = self.lstm(x,(h0, c0))
+  File "/home/jcava/.conda/envs/pytorch-geometric/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1051, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/home/jcava/.conda/envs/pytorch-geometric/lib/python3.9/site-packages/torch/nn/modules/rnn.py", line 677, in forward
+    self.check_forward_args(input, hx, batch_sizes)
+  File "/home/jcava/.conda/envs/pytorch-geometric/lib/python3.9/site-packages/torch/nn/modules/rnn.py", line 620, in check_forward_args
+    self.check_input(input, batch_sizes)
+  File "/home/jcava/.conda/envs/pytorch-geometric/lib/python3.9/site-packages/torch/nn/modules/rnn.py", line 205, in check_input
+    raise RuntimeError(
+RuntimeError: input.size(-1) must be equal to input_size. Expected 5, got 3
