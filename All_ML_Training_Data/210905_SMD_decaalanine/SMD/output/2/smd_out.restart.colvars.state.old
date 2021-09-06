@@ -1,0 +1,20 @@
+configuration {
+  step       200000
+  dt 2.000000e+00
+  version 2018-10-16
+}
+
+colvar {
+  name End2EndDist
+  x  1.96835924540322e+01
+}
+
+restraint {
+  configuration {
+    step 200000
+    name harmonic1
+    centers   2.08000000000000e+01
+    accumulatedWork  2.58494598194293e+00
+  }
+}
+
