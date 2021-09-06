@@ -132,7 +132,7 @@ harmonic {
 
 
 # Main
-for rep in range(20):
+for rep in range(50):
         createdirectory(rep)
 
 exit()

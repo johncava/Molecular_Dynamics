@@ -30,7 +30,7 @@ threads=$(expr $Cores - $Gpus)
 
 cd output
 
-for replica in {2..2}; do
+for replica in {20..49}; do
     echo "Replica $replica"
     cd $replica    
 	cmstr=$jobname-output
