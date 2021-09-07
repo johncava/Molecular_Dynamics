@@ -1,0 +1,3 @@
+#!/bin/bash
+module load namd/2.13-mpi
+namd2 smd.namd
