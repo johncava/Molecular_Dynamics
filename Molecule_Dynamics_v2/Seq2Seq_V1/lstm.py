@@ -9,42 +9,42 @@ import torch_geometric.transforms as T
 from torch_geometric.data import Data 
 from torch_geometric.nn import GATConv
 
-##
-# Read Dataset 
-##
-import glob
-import numpy as np
-X_positions = np.load('/home/jcava/10_deca_alanine_main_dataset/10_deca_alanine/98/backbone.npy') #/ 17.0
-
-
-#Pick the good region [5K-10K]
-X = X_positions[5000:10001,:,:]
-
-# Normalize X and Y by 7 and Z by 10
-#X[:,:,:2] =  X[:,:,:2] / 7.0
-#X[:,:,2:3] = X[:,:,2:3] / 10.0
-
-# Sample down the amount of sequenced frames from 20K to 2K
-#X = X[::10]
-#print(X.shape)
-
 ###
 # IMPORTANT VARIABLES
 ###
 
 number_of_particles = 40 
 input_size = 3
-hidden_size = 64
+hidden_size = 128
 output_size = 3
 history_size = 5
 lead_time = 5
 M = 5
 num_layers = 1
 
-# Create Training dataset from this sequence
+##
+# Read Dataset 
+##
+import glob
+import numpy as np
+
+files = glob.glob('./../../All_ML_Training_Data/210905_SMD_decaalanine/SMD/output/processed_orient/*.npy')
+
 dataset = []
-for i in range(X.shape[0]-(lead_time + history_size)):
-    dataset.append((X[i:i+history_size,:,:], X[i+history_size+lead_time,:,:]))
+
+for file_ in files:
+    X_positions = np.load(file_)
+
+    #Pick the good region [5K-10K]
+    X = X_positions
+
+    # Sample down the amount of sequenced frames from 20K to 2K
+    X = X[::10]
+    #print(X.shape)
+
+    # Create Training dataset from this sequence
+    for i in range(X.shape[0]-(lead_time + history_size)):
+        dataset.append((X[i:i+history_size,:,:], X[i+history_size:i+history_size+lead_time,:,:]))
 
 # Shuffle the dataset
 import random
@@ -111,7 +111,7 @@ optimizer = optim.Adam(list(encoder.parameters()) + list(decoder.parameters()), 
 # Run Training
 ##
 
-max_epochs = 5
+max_epochs = 1
 
 epoch_loss = []
 
@@ -132,37 +132,35 @@ for epoch in range(max_epochs):
             output = output + torch.randn((1,number_of_particles,3)).cuda()
             output, (h0,c0) = decoder(output, (h0,c0))
         output = output.squeeze(0)
-        # Construct the end to end distance (e.g atom 1 - 40, 2 - 39, 3 - 38, ..., etc) for X
-        end_to_end_distance_x = []
-        for i in range(int(number_of_particles/2)):
-            a = output[i,:3]
-            b = output[i,:3]
-            dist = torch.cdist(a.view(1,3),b.view(1,3),p=2).view(1)
-            end_to_end_distance_x.append(dist)
-        end_to_end_distance_x = torch.stack(end_to_end_distance_x)
-        # Construct end to end distance for Y
-        y = y[:,:3]
-        end_to_end_distance_y = []
-        for i in range(int(number_of_particles/2)):
-            a = y[i,:3]
-            b = y[i,:3]
-            dist = torch.cdist(a.view(1,3),b.view(1,3),p=2).view(1)
-            end_to_end_distance_y.append(dist)
-        end_to_end_distance_y = torch.stack(end_to_end_distance_y)
         # Loss computation
         optimizer.zero_grad()
-        loss = F.mse_loss(output[:,:3], y) + F.mse_loss(end_to_end_distance_x, end_to_end_distance_y)
+        loss = F.mse_loss(output[:,:3], y[-1,:,:])
         training_loss.append(loss.item())
         loss.backward()
         optimizer.step()
+        break
     epoch_loss.append(np.mean(training_loss))
     print('Epoch ' + str(epoch) + ' Loss: ' + str(epoch_loss[-1]))
 end = time.time()
 print('Done in ' + str(end-start) + 's')
 
 ##
-# Run Testing
+# Run Testing Auto-Regresively
 ##
+
+X_positions = np.load('/home/jcava/10_deca_alanine/99/backbone.npy') #/ 17.0
+
+# Reshape X_angles to get every 10th frame (200000, number of particles, 2) => (20000, number of particles, 2)
+
+#Pick the good region [5K-10K]
+X = X_positions[5000:10001,:,:]
+
+testing_dataset = []
+for i in range(X.shape[0]-(lead_time + history_size)):
+    testing_dataset.append((X[i:i+history_size,:,:], X[i+history_size:i+history_size+lead_time,:,:]))
+
+testing_dataset = testing_dataset[0]
+
 prediction_length = 997
 predictions = []
 with torch.no_grad():
