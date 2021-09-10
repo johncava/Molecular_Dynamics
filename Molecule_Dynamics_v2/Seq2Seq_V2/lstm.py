@@ -111,7 +111,7 @@ optimizer = optim.Adam(list(encoder.parameters()) + list(decoder.parameters()), 
 # Run Training
 ##
 
-max_epochs = 1
+max_epochs = 5
 
 epoch_loss = []
 
@@ -155,7 +155,6 @@ for epoch in range(max_epochs):
         training_loss.append(loss.item())
         loss.backward()
         optimizer.step()
-        break
     epoch_loss.append(np.mean(training_loss))
     print('Epoch ' + str(epoch) + ' Loss: ' + str(epoch_loss[-1]))
 end = time.time()
@@ -176,7 +175,7 @@ testing_dataset = []
 for i in range(X.shape[0]-(lead_time + history_size)):
     testing_dataset.append((X[i:i+history_size,:,:], X[i+history_size:i+history_size+lead_time,:,:]))
 
-testing_dataset = testing_dataset[0]
+testing_dataset = [testing_dataset[0]]
 
 prediction_length = 997
 predictions = []
@@ -187,12 +186,12 @@ with torch.no_grad():
         output, (h0,c0) = encoder(x)
         output = output[-1,:,:]
         # Decoder
-        for index in range(lead_time):
+        for index in range(prediction_length):
             output = output + torch.randn((1,number_of_particles,3)).cuda()
             output, (h0,c0) = decoder(output, (h0,c0))
-        output = output.squeeze(0)
-        x_final = output[:,:3]
-        predictions.append(x_final)
+            #output = output.squeeze(0)
+            x_final = output.squeeze(0)[:,:3]
+            predictions.append(x_final)
 
     predictions = torch.stack(predictions).squeeze(1)
     predictions = predictions.cpu().detach().numpy()
