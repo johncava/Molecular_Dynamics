@@ -273,3 +273,11 @@ with open(outName, "w") as outputfile:
             outputfile.write("  " + atomType + "\t" + line)
 
 print("=> Finished Generation <=")
+
+###
+# Saving the Model
+###
+
+PATH = "./"
+pt.save(lstm.state_dict(), PATH + 'lstm.pt')
+pt.save(gat_decoder.state_dict(), PATH + 'gat-decoder.pt')
