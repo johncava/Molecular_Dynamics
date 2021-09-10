@@ -99,14 +99,15 @@ optimizer = optim.Adam(lstm.parameters(), lr=learning_rate)
 def dihedral2(p):
     b = p[:-1] - p[1:]
     b[0] *= -1
-    v = torch.tensor( [ v - (v.dot(b[1])/b[1].dot(b[1])) * torch.tensor(b[1]) for v in torch.tensor([b[0], b[2]]) ] )
+    v = [ v - (v.dot(b[1])/b[1].dot(b[1])) * b[1] for v in [b[0], b[2]] ] 
+    v = torch.stack(v)
     # Normalize vectors
     v /= torch.sqrt(torch.einsum('...i,...i', v, v)).view(-1,1)
     b1 = b[1] / torch.linalg.norm(b[1])
     x = torch.dot(v[0], v[1])
     m = torch.cross(v[0], b1)
     y = torch.dot(m, v[1])
-    return torch.degrees(torch.arctan2( y, x ))
+    return torch.rad2deg(torch.atan2( y, x ))
 
 
 def getPhiVals(frame):
@@ -130,11 +131,8 @@ def getPhiVals(frame):
         chosen_frames = torch.stack((frame[sel[0]], frame[sel[1]], frame[sel[2]], frame[sel[3]]))
         phi = dihedral2(chosen_frames)
         phi_vals.append(phi)
-        #phi_vals.append(phi)
-        #phi_vals.append(phi)
-        #phi_vals.append(phi)
 
-    return torch.array(phi_vals)
+    return torch.tensor(phi_vals)
 
 
 def getPsiVals(frame):
@@ -160,7 +158,7 @@ def getPsiVals(frame):
         psi = dihedral2(chosen_frames)
         psi_vals.append(psi)
 
-    return torch.array(psi_vals)
+    return torch.tensor(psi_vals)
 
 ##
 # Run Training
@@ -189,17 +187,18 @@ for epoch in range(max_epochs):
         # Loss computation
         optimizer.zero_grad()
         y = y[:,:3]
-        loss = F.mse_loss(output, y)
+        y_phi = getPhiVals(y)
+        y_psi = getPsiVals(y)
+        loss = F.mse_loss(output, y) + F.mse_loss(output_phi,y_phi) + F.mse_loss(output_psi,y_phi)
         training_loss.append(loss.item())
         loss.backward()
         optimizer.step()
-        break
     epoch_loss.append(np.mean(training_loss))
     print('Epoch ' + str(epoch) + ' Loss: ' + str(epoch_loss[-1]))
 end = time.time()
 print('Done in ' + str(end-start) + 's')
 
-'''
+
 ##
 # Run Testing Non-AutoRegressively
 ##
@@ -313,4 +312,3 @@ with open(outName, "w") as outputfile:
             outputfile.write("  " + atomType + "\t" + line)
 
 print("=> Finished Generation <=")
-'''
