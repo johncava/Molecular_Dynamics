@@ -145,7 +145,6 @@ for epoch in range(max_epochs):
         output = gat_decoder(output.x, output.edge_index)
         # Construct the end to end distance (e.g atom 1 - 40, 2 - 39, 3 - 38, ..., etc) for X
         end_to_end_distance_x = []
-        output = output[-1,:,:3]
         for i in range(int(number_of_particles/2)):
             a = output[i,:3]
             b = output[39-i,:3]
@@ -173,6 +172,7 @@ for epoch in range(max_epochs):
 end = time.time()
 print('Done in ' + str(end-start) + 's')
 
+'''
 ##
 # Run Testing Non-AutoRegressively
 ##
@@ -234,7 +234,7 @@ with open(outName, "w") as outputfile:
             outputfile.write("  " + atomType + "\t" + line)
 
 print("=> Finished Generation <=")
-
+'''
 ##
 # Run Testing Auto-Regressively
 ##
@@ -258,12 +258,22 @@ with torch.no_grad():
     # Encoder
     lstm.reinitalize()
     output = lstm(x)
-    output = output[-1,:,:].unsqueeze(0)
+    output = output[-1,:,:]
+    output = Data(x=output,pos=output).cuda()
+    output = transform0(output)
+    output = transform(output)
+    output = gat_decoder(output.x, output.edge_index)
     # Decoder
     for index in range(prediction_length):
         output = lstm(output)
-        x_final = output.squeeze(0)[:,:3]
+        output = output[-1,:,:]
+        output = Data(x=output,pos=output).cuda()
+        output = transform0(output)
+        output = transform(output)
+        output = gat_decoder(output.x, output.edge_index)
+        x_final = output
         predictions.append(x_final)
+        output = output.unsqueeze(0)
 
     predictions = torch.stack(predictions).squeeze(1)
     predictions = predictions.cpu().detach().numpy()
@@ -297,5 +307,5 @@ print("=> Finished Generation <=")
 ###
 
 PATH = "./"
-pt.save(lstm.state_dict(), PATH + 'lstm.pt')
-pt.save(gat_decoder.state_dict(), PATH + 'gat-decoder.pt')
+torch.save(lstm.state_dict(), PATH + 'lstm.pt')
+torch.save(gat_decoder.state_dict(), PATH + 'gat-decoder.pt')
