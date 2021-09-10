@@ -2,7 +2,7 @@
  
 #SBATCH -N 1  # number of nodes
 #SBATCH -n 8  # number of "tasks" (default: allocates 1 core per task)
-#SBATCH -t 0-05:00:00   # time in d-hh:mm:ss
+#SBATCH -t 0-10:00:00   # time in d-hh:mm:ss
 #SBATCH -p gpu       # partition
 #SBATCH --gres=gpu:1  
 #SBATCH -q wildfire       # QOS
