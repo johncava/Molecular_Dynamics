@@ -92,7 +92,7 @@ lstm = LSTM(input_size, hidden_size)
 # Optimization
 ##
 import torch.optim as optim
-learning_rate=1e-3
+learning_rate=1e-4
 optimizer = optim.Adam(lstm.parameters(), lr=learning_rate)
 
 
@@ -164,7 +164,7 @@ def getPsiVals(frame):
 # Run Training
 ##
 
-max_epochs = 1
+max_epochs = 5
 
 epoch_loss = []
 
