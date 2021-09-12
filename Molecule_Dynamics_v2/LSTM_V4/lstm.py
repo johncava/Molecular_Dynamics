@@ -28,7 +28,7 @@ num_layers = 1
 import glob
 import numpy as np
 
-files = glob.glob('./../../All_ML_Training_Data/210905_SMD_decaalanine/SMD/output/processed_orient/*.npy')
+files = glob.glob('./../../All_ML_Training_Data/210905_SMD_decaalanine/SMD/output/processed_orient_phi_psi/*.npy')
 
 dataset = []
 
@@ -37,10 +37,6 @@ for file_ in files:
 
     #Pick the good region [5K-10K]
     X = X_positions
-
-    # Sample down the amount of sequenced frames from 20K to 2K
-    X = X[::10]
-    #print(X.shape)
 
     # Create Training dataset from this sequence
     for i in range(X.shape[0]-(lead_time + history_size)):
@@ -164,7 +160,7 @@ def getPsiVals(frame):
 # Run Training
 ##
 
-max_epochs = 1
+max_epochs = 5
 
 epoch_loss = []
 
@@ -174,34 +170,21 @@ for epoch in range(max_epochs):
 
     training_loss = []
     for data in training_dataset:
-        x = torch.tensor(data[0]).float()
-        x_phis, x_psis = torch.zeros(number_of_particles,1), torch.zeros(number_of_particles,1)
-        new_x = []
-        for s in range(x.size()[0]):
-            x_phi, phi_index = getPhiVals(x[s,:,:])
-            x_psi, psi_index = getPsiVals(x[s,:,:])
-            for i in range(phi_index.shape[0]):
-                indices = [p-1 for p in phi_index[i].tolist()]
-                x_phis[indices] = x_phi[0][i]
-            for j in range(psi_index.shape[0]):
-                indices = [p-1 for p in psi_index[j].tolist()]
-                x_psis[indices] = x_psi[0][j]
-            new_x.append(torch.cat((x[s,:,:],x_phis,x_psis),1))
-        new_x = torch.stack(new_x).numpy().tolist()
-        x = torch.tensor(new_x).float().cuda()
+        x = torch.tensor(data[0]).float().cuda()
         y = torch.tensor(data[1]).float().cuda()
         # GAT Encoder
         lstm.reinitalize()
         output = lstm(x)
         output = output[-1,:,:]
-        output_phi,_ = getPhiVals(output)
-        output_psi,_ = getPsiVals(output)
         # Loss computation
         optimizer.zero_grad()
-        y = y[:,:3]
-        y_phi,_ = getPhiVals(y)
-        y_psi,_ = getPsiVals(y)
-        loss =  F.mse_loss(output, y) + F.mse_loss(output_phi,y_phi) + F.mse_loss(output_psi,y_phi)
+        y_pos = y[:,:3]
+        position_loss = F.mse_loss(output, y_pos)
+        output_phi,_ = getPhiVals(output)
+        output_psi,_ = getPsiVals(output)
+        y_phi,_ = getPhiVals(y_pos)
+        y_psi,_ = getPsiVals(y_pos)
+        loss = position_loss + F.mse_loss(output_phi,y_phi) + F.mse_loss(output_psi,y_phi)
         training_loss.append(loss.item())
         loss.backward()
         optimizer.step()
