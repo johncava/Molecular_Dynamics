@@ -1,0 +1,12 @@
+                                                                 
+                                                                                
+##############################################                                  
+INFORMATION                                                                     
+##############################################                                  
+                                                                                
+You have loaded the base anaconda environment. For specialized environments,    
+you must first enable them with `source activate [env]`.                        
+                                                                                
+For a full list of environments, type `conda env list`                          
+  
+python: can't open file 'train.py': [Errno 2] No such file or directory
