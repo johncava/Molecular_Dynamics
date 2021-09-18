@@ -187,7 +187,7 @@ class GATModel(torch.nn.Module):
     super(GATModel, self).__init__()
     self.gat_encoder = GATEncoder(channel_size, hidden_size)
     self.gat_decoder = GATDecoder(hidden_size, output_size)
-    self.gat_processor = GATProcessor(hidden_size, hidden_size)
+    self.gat_processor = GATProcessor(hidden_size, 3)
     self.transform0 = T.KNNGraph(k=40)
     self.transform = T.Distance(norm=True)
   
