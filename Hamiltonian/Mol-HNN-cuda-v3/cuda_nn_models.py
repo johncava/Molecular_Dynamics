@@ -95,7 +95,8 @@ class Cfconv(torch.nn.Module):
     self.dense2 = torch.nn.Conv1d(hidden_dim, hidden_dim,1)
 
   def forward(self, x, r):
-    positions = torch.cdist(r,r).exp()
+    positions = torch.cdist(r,r)
+    positions = torch.exp(-positions)
     positions = self.dense1(positions)
     positions = torch.log(0.5*torch.exp(positions) + 0.5)
     positions = self.dense2(positions)
@@ -130,9 +131,9 @@ class SchNet(torch.nn.Module):
     self.atomwise1 = torch.nn.Conv1d(64,32,1)
     self.atomwise2 = torch.nn.Conv1d(32,2,1)
 
-  def forward(self, x):
-    x = x[:,120:].view(x.size()[0],3,40)
-    r = x[:,:120].view(x.size()[0],40,3)
+  def forward(self, x_input):
+    x = x_input[:,120:].view(x_input.size()[0],3,40)
+    r = x_input[:,:120].detach().clone().view(x_input.size()[0],40,3)
     x = self.embedding(x)
     #print(x.size())
     x = self.interaction1(x,r)

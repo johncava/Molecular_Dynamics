@@ -7,7 +7,7 @@ import numpy as np
 
 import os, sys
 THIS_DIR = os.path.dirname(os.path.abspath(""))
-THIS_DIR = os.path.join(THIS_DIR, "Mol-HNN-cuda-v2")
+THIS_DIR = os.path.join(THIS_DIR, "Mol-HNN-cuda-v3")
 # PARENT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # sys.path.append(PARENT_DIR)
 
@@ -38,7 +38,6 @@ for num, file_ in enumerate(files):
 
 dataset = np.array(dataset)
 dataset = dataset.reshape(num_trajectories, -1, num_atoms*3)
-print(dataset.shape)
 
 ### Preprocessing to create the training step
 
@@ -96,6 +95,7 @@ dx_dataset = dx_dataset.reshape(-1, 240) ## shape of (1999800, 240)
 '''
 
 x = torch.tensor(x_dataset, requires_grad=True, dtype=torch.float32).cuda()
+print(x.size())
 dxdt = torch.Tensor(dx_dataset).cuda()
 
 batch_size = 100
@@ -139,7 +139,8 @@ num_particles = 40
 channel_size = 3
 hidden_size = 32
 output_size = 2
-nn_model = GATModel(channel_size, hidden_size, output_size).cuda()
+#nn_model = GATModel(channel_size, hidden_size, output_size).cuda()
+nn_model = SchNet(num_particles).cuda()
 model = HNN(args.input_dim, differentiable_model=nn_model,
         field_type=args.field_type, baseline=args.baseline)
 optim = torch.optim.Adam(model.parameters(), args.learn_rate, weight_decay=0)
@@ -150,6 +151,7 @@ optim = torch.optim.Adam(model.parameters(), args.learn_rate, weight_decay=0)
 
 # vanilla train loop
 stats = {'train_loss': [], 'test_loss': []}
+max_num = 10
 for step in range(args.total_steps+1):
 
     # train step
@@ -161,7 +163,9 @@ for step in range(args.total_steps+1):
     loss.backward()
     #grad = torch.cat([p.grad.flatten() for p in model.parameters()]).clone()
     optim.step() ; optim.zero_grad()
-
+    print(loss.item())
+    if step > max_num:
+        break
     # run test data
 #     test_ixs = torch.randperm(test_x.shape[0])[:args.batch_size]
 #     test_dxdt_hat = model.time_derivative(test_x[test_ixs])
@@ -176,7 +180,6 @@ for step in range(args.total_steps+1):
         print("step {}, train_loss {:.4e}, test_loss {:.4e}, grad norm {:.4e}, grad std {:.4e}"
           .format(step, loss.item(), 420, grad@grad, grad.std()))
     '''
-    break
 print("=> Finished Training <=")
 
 
