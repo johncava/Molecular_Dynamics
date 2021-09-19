@@ -32,7 +32,7 @@ num_trajectories = 200
 num_atoms = 40
 batch_size = 100
 epochs = 3
-save_every = 100 ## how often the model is saved
+save_every = 1000 ## how often the model is saved
 
 
 start_time = time.time()
@@ -40,7 +40,7 @@ start_time = time.time()
 
 
 
-PATH = "white-MOLHNNv1.pt"
+PATH = "models/sept17-MOLHNNv1.pt"
 raw_data = './../data/SMD_data/*.npy'
 saved_x_dataset = "../data/whitened_x_dataset.npy"
 saved_dx_dataset = "../data/whitened_dx_dataset.npy"
