@@ -1,0 +1,47 @@
+PSF NAMD
+
+       0 !NTITLE
+
+      10 !NATOM
+         4 BH       1        ALA      CA       CAA      0.000000        0.0000           0 
+        14 BH       2        ALA      CA       CAA      0.000000        0.0000           0 
+        24 BH       3        ALA      CA       CAA      0.000000        0.0000           0 
+        34 BH       4        ALA      CA       CAA      0.000000        0.0000           0 
+        44 BH       5        ALA      CA       CAA      0.000000        0.0000           0 
+        54 BH       6        ALA      CA       CAA      0.000000        0.0000           0 
+        64 BH       7        ALA      CA       CAA      0.000000        0.0000           0 
+        74 BH       8        ALA      CA       CAA      0.000000        0.0000           0 
+        84 BH       9        ALA      CA       CAA      0.000000        0.0000           0 
+        99 BH       10       ALA      CA       CAA      0.000000        0.0000           0 
+
+
+
+         9 !NBOND: bonds
+         1         2         2         3         3         4         4         5
+         5         6         6         7         7         8         8         9
+         9        10
+
+
+         8 !NTHETA: angles
+         1         2         3         2         3         4         3         4         5
+         4         5         6         5         6         7         6         7         8
+         7         8         9         8         9        10
+
+
+         0 !NPHI: dihedrals
+
+
+
+         0 !NIMPHI: impropers
+
+
+
+         0 !NDON: donors
+
+         0 !NACC: acceptors
+
+         0 !NNB
+
+
+         0          0 !NGRP
+

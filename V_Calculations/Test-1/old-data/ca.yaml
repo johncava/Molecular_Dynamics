@@ -1,0 +1,15 @@
+atomtypes:
+- CAA
+bonds:
+  (CAA, CAA):
+    k0: 104.10617833285819
+    req: 3.840570296201717
+electrostatics:
+  CAA:
+    charge: 0.0
+lj:
+  CAA:
+    epsilon: 8461.551928575189
+    sigma: 1.0
+masses:
+  CAA: 12.0

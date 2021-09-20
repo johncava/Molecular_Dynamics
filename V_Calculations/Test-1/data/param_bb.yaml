@@ -1,0 +1,62 @@
+atomtypes: [N CA C O]
+
+bonds:
+  (N, CA):
+    k0: 320.000
+    req: 1.4300
+  (C, CA):
+    k0:  250.000
+    req: 1.4900
+  (C, N):
+    k0: 370.000
+    req: 1.3450
+  (O, C):
+    k0: 620.000
+    req: 1.2300
+
+angles:
+  (N, CA, C): 
+    k0: 50.000
+    theta0: 107.0000
+  (O, C, CA): 
+    k0: 80.000
+    theta0: 121.0000
+  (O, C, N):
+    k0: 80.000
+    theta0: 122.5000
+  (CA, N, C):
+    k0: 50.000
+    theta0: 120.0000
+  (CA, C, N):
+    k0: 80.000
+    theta0: 116.5000
+
+lj:
+  N:
+    sigma: -0.200000
+    epsilon: 3.70000
+  CA:
+    sigma: -0.0320
+    epsilon: 4.000
+  C:
+    sigma: -0.110000
+    epsilon: 4.000
+  O:
+    sigma: -0.120000
+    epsilon: 3.40000
+
+electrostatics:
+  N:
+    charge: -0.47
+  CA:
+    charge: 0.07
+  C:
+    charge: 0.51
+  O:
+    charge: -0.51
+
+masses:
+  N: 12.01100
+  CA: 12.01100
+  C: 12.01100
+  O: 15.99900  

@@ -1,0 +1,13 @@
+TITLE     MDANALYSIS FRAME 0: Created by PDBWriter
+CRYST1    0.000    0.000    0.000  90.00  90.00  90.00 P 1           1
+ATOM      1  CA  ALA B   1       0.795  -1.138  -0.483  1.00  0.00      BH   C
+ATOM      2  CA  ALA B   2       3.732  -3.136   1.017  1.00  0.00      BH   C
+ATOM      3  CA  ALA B   3       5.689  -1.239   3.737  1.00  0.00      BH   C
+ATOM      4  CA  ALA B   4       3.264   1.717   4.291  1.00  0.00      BH   C
+ATOM      5  CA  ALA B   5       0.403  -0.807   4.753  1.00  0.00      BH   C
+ATOM      6  CA  ALA B   6       2.565  -2.658   7.350  1.00  0.00      BH   C
+ATOM      7  CA  ALA B   7       3.238   0.620   9.196  1.00  0.00      BH   C
+ATOM      8  CA  ALA B   8      -0.529   1.395   9.119  1.00  0.00      BH   C
+ATOM      9  CA  ALA B   9      -1.845  -2.070  10.165  1.00  0.00      BH   C
+ATOM     10  CA  ALA B  10       0.524  -2.156  13.180  1.00  0.00      BH   C
+END
