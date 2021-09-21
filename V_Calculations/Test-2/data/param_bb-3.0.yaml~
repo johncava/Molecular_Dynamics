@@ -1,0 +1,93 @@
+atomtypes: [N CA C O]
+
+bonds:
+  (N, CA):
+    k0: 320.000
+    req: 1.4300
+  (C, CA):
+    k0:  250.000
+    req: 1.4900
+  (C, N):
+    k0: 370.000
+    req: 1.3450
+  (O, C):
+    k0: 620.000
+    req: 1.2300
+
+angles:
+  (N, CA, C): 
+    k0: 50.000
+    theta0: 107.0000
+  (O, C, CA): 
+    k0: 80.000
+    theta0: 121.0000
+  (O, C, N):
+    k0: 80.000
+    theta0: 122.5000
+  (CA, N, C):
+    k0: 50.000
+    theta0: 120.0000
+  (CA, C, N):
+    k0: 80.000
+    theta0: 116.5000
+
+dihedrals:
+  (N, CA, C, N):
+    phi_k: 0.4000
+    per: 1
+    phase: 0.00
+  (N, CA, C, O):
+    phi_k: 0.0000  
+    per: 1     
+    phase: 0.00
+  (CA, C, N, CA):
+    phi_k: 1.6000  
+    per: 1     
+    phase: 0.00
+  (C, N, CA, C):
+    phi_k: 0.2000  
+    per: 1   
+    phase: 180.00
+  (O, C, N, CA):
+    phi_k: 2.5000  
+    per: 2   
+    phase: 180.00
+
+
+lj:
+  N:
+    sigma: -0.200000
+    epsilon: 3.70000
+    epsilon14: -0.200000     
+    sigma14: 3.10000
+  CA:
+    sigma: -0.0320
+    epsilon: 4.000
+    epsilon14: -0.01 
+    sigma14: 3.800
+  C:
+    sigma: -0.110000
+    epsilon: 4.000
+    epsilon14: -0.01
+    sigma14: 3.800
+  O:
+    sigma: -0.120000
+    epsilon: 3.40000
+    epsilon14: -0.120000     
+    sigma14: 2.8000
+
+electrostatics:
+  N:
+    charge: -0.47
+  CA:
+    charge: 0.07
+  C:
+    charge: 0.51
+  O:
+    charge: -0.51
+
+masses:
+  N: 12.01100
+  CA: 12.01100
+  C: 12.01100
+  O: 15.99900  
