@@ -1,0 +1,12 @@
+                                                                 
+                                                                                
+##############################################                                  
+INFORMATION                                                                     
+##############################################                                  
+                                                                                
+You have loaded the base anaconda environment. For specialized environments,    
+you must first enable them with `source activate [env]`.                        
+                                                                                
+For a full list of environments, type `conda env list`                          
+  
+slurmstepd: error: *** JOB 11448274 ON cg20-7 CANCELLED AT 2021-09-21T05:30:25 DUE TO TIME LIMIT ***
