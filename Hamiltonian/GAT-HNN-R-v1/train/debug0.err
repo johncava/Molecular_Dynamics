@@ -1,0 +1,14 @@
+                                                                 
+                                                                                
+##############################################                                  
+INFORMATION                                                                     
+##############################################                                  
+                                                                                
+You have loaded the base anaconda environment. For specialized environments,    
+you must first enable them with `source activate [env]`.                        
+                                                                                
+For a full list of environments, type `conda env list`                          
+  
+Traceback (most recent call last):
+  File "train-HNN.py", line 196, in <module>
+OSError: [Errno 70] Communication error on send: 'trainlog.txt'
