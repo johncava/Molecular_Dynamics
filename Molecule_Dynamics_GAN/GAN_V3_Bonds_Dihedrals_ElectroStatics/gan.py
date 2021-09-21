@@ -196,7 +196,7 @@ data_dir = "./../../V_Calculations/Test-3_energy_module/data/"
 psf_file = "backbone-no-improp.psf"  # This is a special psf file with improper connectivity deleted
 parameter_file = "param_bb-3.0.yaml" # bond, angles, dihedrals, electrostatics, lj; no 1-4, impropers or external
 # Make energy calculation object
-sys_decal = Energy(data_dir, psf_file, parameter_file)  
+
 
 
 ###
@@ -234,6 +234,9 @@ for epoch in range(max_epochs):
         # Update generator weights
         g_optimizer.step()
 
+        del t
+        del output
+        
         ###
         # (1) Update D Network: maximize log(D(x)) + log (1 - D(G(z)))
         ###
@@ -256,16 +259,20 @@ for epoch in range(max_epochs):
         # Update discriminator weights after loss backward from BOTH d_real AND d_fake examples
         d_optimizer.step()
 
+        del t
+        del output
+
         ###
         # (3) Update G Network: minimize log(I(G(z)))
         ###
-        for i in range(batch_size):
+        for i in range(1):
             g_optimizer.zero_grad()
             # Generator
             _,output = generator(1,1002)
             output = output.view(1,120).view(40,3,1)
             # D(G(z)))
             #output = output.detach().cpu()
+            sys_decal = Energy(data_dir, psf_file, parameter_file)  
             potential = sys_decal.calc_energy(output)
             total_pot = torch.zeros(1,1).cuda()
             keys = ['electrostatics', 'bonds', 'dihedrals']
@@ -275,6 +282,10 @@ for epoch in range(max_epochs):
             total_pot.backward()
             g_optimizer.step()
 
+            del sys_decal
+            del t, output
+            del potential
+            del total_pot
 
 print('Done Done')
 

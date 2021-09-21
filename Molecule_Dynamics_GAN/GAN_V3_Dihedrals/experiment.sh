@@ -4,7 +4,7 @@
 #SBATCH -n 8  # number of "tasks" (default: allocates 1 core per task)
 #SBATCH -t 0-10:00:00   # time in d-hh:mm:ss
 #SBATCH -p gpu       # partition
-#SBATCH --gres=gpu:1  
+#SBATCH --gres=gpu:2  
 #SBATCH -q wildfire       # QOS
 #SBATCH -o slurm.%j.out # file to save job's STDOUT (%j = JobId)
 #SBATCH -e slurm.%j.err # file to save job's STDERR (%j = JobId)
