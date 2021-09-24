@@ -163,7 +163,7 @@ class Discriminator(torch.nn.Module):
 
 
 ###################
-# Generate some data. For this example we generate some synthetic data from a time-dependent Ornstein-Uhlenbeck SDE.
+# Load in the Molecular Data 
 ###################
 def get_data(batch_size, device):
     files = glob.glob('./../../All_ML_Training_Data/210905_SMD_decaalanine/SMD/output/processed_orient/*.npy')
@@ -385,6 +385,10 @@ def main(
 
     #plot(ts, generator, test_dataloader, num_plot_samples, plot_locs)
 
+    # Save a generated trajectory
+    generated_samples = generator(ts,1)
+    generated_samples = generated_samples.detach().cpu().numpy()
+    np.save('sde_generated.npy',generated_samples)
 
 if __name__ == '__main__':
     fire.Fire(main)
