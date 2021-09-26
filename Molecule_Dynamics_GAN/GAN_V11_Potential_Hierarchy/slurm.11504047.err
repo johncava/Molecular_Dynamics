@@ -1,0 +1,4 @@
+Traceback (most recent call last):
+  File "/home/jcava/Molecular_Dynamics/Molecule_Dynamics_GAN/GAN_V11_Potential_Hierarchy/gan.py", line 345, in <module>
+    del dis_loss
+NameError: name 'dis_loss' is not defined

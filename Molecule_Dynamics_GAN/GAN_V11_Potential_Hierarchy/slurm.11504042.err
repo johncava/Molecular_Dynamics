@@ -1,0 +1,4 @@
+Traceback (most recent call last):
+  File "/home/jcava/Molecular_Dynamics/Molecule_Dynamics_GAN/GAN_V11_Potential_Hierarchy/gan.py", line 345, in <module>
+    del diis_loss
+NameError: name 'diis_loss' is not defined
