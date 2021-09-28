@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "/home/jcava/Molecular_Dynamics/Molecule_Dynamics_GAN/GAN_V12.3.1_Potential_Hierarchy/gan.py", line 265, in <module>
+    t,output,_ = generator(batch_size,100)
+  File "/home/jcava/.conda/envs/pytorch-geometric/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1051, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/home/jcava/Molecular_Dynamics/Molecule_Dynamics_GAN/GAN_V12.3.1_Potential_Hierarchy/gan.py", line 119, in forward
+    z = z*x
+RuntimeError: Expected all tensors to be on the same device, but found at least two devices, cuda:0 and cpu!

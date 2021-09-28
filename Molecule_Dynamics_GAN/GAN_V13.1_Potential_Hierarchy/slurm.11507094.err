@@ -1,0 +1,4 @@
+Traceback (most recent call last):
+  File "/home/jcava/Molecular_Dynamics/Molecule_Dynamics_GAN/GAN_V13.1_Potential_Hierarchy/gan.py", line 310, in <module>
+    improper_factor = torch.tensor(p_factors[3]).float().cuda()
+IndexError: tuple index out of range

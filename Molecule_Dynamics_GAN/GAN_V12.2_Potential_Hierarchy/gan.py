@@ -1,6 +1,6 @@
 ##
-# GAN_V13: Added target dist_matrix, averaged for each frame from the 200 trajectory dataset
-# mse loss on target_dist matrix is used in the same time as the update on the generator for potential energy
+# GAN_V12: Added target end to end distance of atom 1 and atom 30, atom 2 and atom 39, etc..., averaged for each frame from the 200 trajectory dataset
+# mse loss on dis_target is used in the same time as the update on the generator for potential energy
 ##
 import matplotlib
 matplotlib.use('Agg')
@@ -23,21 +23,6 @@ num_layers = 1
 batch_size = 128
 
 ##
-# Pairwise distance matrix calculatrion (code from https://discuss.pytorch.org/t/efficient-distance-matrix-computation/9065/4)
-##
-
-def dist_matrix(x,y):
-    n = x.size(0)
-    m = y.size(0)
-    d = x.size(1)
-
-    x = x.unsqueeze(1).expand(n, m, d)
-    y = y.unsqueeze(0).expand(n, m, d)
-
-    dist = torch.pow(x - y, 2).sum(2) 
-    return dist
-
-##
 # Read Dataset
 ##
 import glob
@@ -48,27 +33,30 @@ files = glob.glob('./../../All_ML_Training_Data/210905_SMD_decaalanine/SMD/outpu
 dataset = []
 
 end_to_end_distance = dict()
-for i in range(1002):
+for i in range(100):
     end_to_end_distance[i] = []
+    for j in range(int(40/2)):
+        end_to_end_distance[i].append([])
 
 for file_ in files:
     X_positions = np.load(file_)
 
-    X = X_positions
+    X = X_positions[:1000]
 
     X = X[::10]
 
     # Create Training dataset from this sequence
-    #print(X.shape[0])-> 1002
+    #print(X.shape[0])-> 100
     for frame_num in range(X.shape[0]):
         dataset.append((frame_num, X[frame_num,:,:]))
-        x = torch.tensor(X[frame_num,:,:]).float()
-        end_to_end_distance[frame_num].append(dist_matrix(x,x))
-        del x
-    
-for i in range(1002):
-    end_to_end_distance[i] = torch.stack(end_to_end_distance[i])
-    end_to_end_distance[i] = torch.mean(end_to_end_distance[i],0)
+        for j in range(int(40/2)):
+            end_to_end_distance[frame_num][j].append(np.sqrt(np.power((X[frame_num,j,:] - X[frame_num,(40-1)-j,:]),2).sum()))
+
+# Check the end to end distance per frame
+for i in range(100):
+    for j in range(int(40/2)):
+        end_to_end_distance[i][j] = np.array(end_to_end_distance[i][j]).mean().tolist()
+    #end_to_end_distance[i] = np.array(end_to_end_distance[i]).mean().tolist()
 
 new_dataset = []
 for batch in range(int(len(dataset)/batch_size)):
@@ -259,7 +247,7 @@ for epoch in range(max_epochs):
         ###
         g_optimizer.zero_grad()
         # Generator
-        t,output,_ = generator(batch_size,1002)
+        t,output,_ = generator(batch_size,100)
         output = torch.cat([t,output],1)
         # D(G(z)))
         pred = discriminator(output).squeeze(0)
@@ -286,7 +274,7 @@ for epoch in range(max_epochs):
 
         # Train with fake examples
         # Generator
-        t,output,_ = generator(batch_size,1002)
+        t,output,_ = generator(batch_size,100)
         output = torch.cat([t,output],1)
         # D(G(z)))
         pred = discriminator(output).squeeze(0)
@@ -311,11 +299,11 @@ for epoch in range(max_epochs):
         lj_factor =  None
         electro_factor =  None
 
-        dis_factor = torch.tensor(1.0).float().cuda()
+        dis_factor = torch.tensor(10.0).float().cuda()
         for _ in range(4):
             g_optimizer.zero_grad()
             # Generator
-            _,output,t = generator(1,1002)
+            _,output,t = generator(1,100)
             output = output.view(1,120).view(40,3,1)
             # D(G(z)))
             #output = output.detach().cpu()
@@ -340,9 +328,12 @@ for epoch in range(max_epochs):
                     total_pot += electro_factor*potential[0][key]
             # Update generator weights
             output = output.view(40,3)
-            pred_dist_matrix = dist_matrix(output, output)
-            target_dis_matrix = end_to_end_distance[t[0]].cuda()
-            total_pot += dis_factor*F.mse_loss(pred_dist_matrix, target_dis_matrix)
+            pred_dist = []
+            for i in range(int(40/2)):
+                pred_dist.append((output[i,:] - output[(40-1)-i,:]).pow(2).sum().sqrt())
+            pred_dist = torch.stack(pred_dist).view(1,20)
+            target_dis = torch.tensor(end_to_end_distance[t[0]]).float().view(1,20).cuda()
+            total_pot += dis_factor*F.mse_loss(pred_dist, target_dis)
             potential_loss.append(total_pot.item())
             total_pot.backward()
             clipping_value = 1 # arbitrary value of your choosing
@@ -353,8 +344,8 @@ for epoch in range(max_epochs):
             del t, output
             del potential
             del total_pot
-            del target_dis_matrix
-            del pred_dist_matrix
+            del target_dis
+            del pred_dist
 
         del dis_factor
         del bonds_factor

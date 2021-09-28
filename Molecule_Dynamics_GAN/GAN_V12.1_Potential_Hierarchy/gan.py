@@ -295,12 +295,12 @@ for epoch in range(max_epochs):
         bonds_factor = torch.tensor(p_factors[0]).float().cuda()
         angle_factor = torch.tensor(p_factors[1]).float().cuda()
         dihedral_factor = torch.tensor(p_factors[2]).float().cuda()
-        improper_factor = torch.tensor(p_factors[3]).float().cuda()
-        lj_factor =  torch.tensor(p_factors[4]).float().cuda()
-        electro_factor =  torch.tensor(p_factors[5]).float().cuda()
+        improper_factor = None
+        lj_factor =  None
+        electro_factor =  None
 
         dis_factor = torch.tensor(10.0).float().cuda()
-        for _ in range(2):
+        for _ in range(4):
             g_optimizer.zero_grad()
             # Generator
             _,output,t = generator(1,1002)
@@ -318,10 +318,13 @@ for epoch in range(max_epochs):
                 elif key == 'dihedrals':
                     total_pot += dihedral_factor*potential[0][key]
                 elif key == 'impropers':
+                    improper_factor = torch.tensor(p_factors[3]).float().cuda()
                     total_pot += improper_factor*potential[0][key]
                 elif key == 'lj':
+                    lj_factor =  torch.tensor(p_factors[4]).float().cuda()
                     total_pot += lj_factor*potential[0][key]
                 elif key == 'electrostatics':
+                    electro_factor =  torch.tensor(p_factors[5]).float().cuda()
                     total_pot += electro_factor*potential[0][key]
             # Update generator weights
             output = output.view(40,3)
@@ -351,7 +354,7 @@ for epoch in range(max_epochs):
         del improper_factor
         del lj_factor
         del electro_factor
-                
+
 print('Done Done')
 
 ##
@@ -371,7 +374,7 @@ predictions = predictions.cpu().detach().numpy()
 frame_num = predictions.shape[0]
 
 nAtoms = "40"
-outName = "GAN_2.xyz"
+outName = "GAN_4.xyz"
 with open(outName, "w") as outputfile:
     for frame_idx in range(frame_num):
         

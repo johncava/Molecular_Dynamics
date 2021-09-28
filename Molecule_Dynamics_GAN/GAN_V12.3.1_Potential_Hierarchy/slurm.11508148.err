@@ -1,0 +1,2 @@
+/home/jcava/Molecular_Dynamics/Molecule_Dynamics_GAN/GAN_V12.3.1_Potential_Hierarchy/gan.py:355: FutureWarning: Non-finite norm encountered in torch.nn.utils.clip_grad_norm_; continuing anyway. Note that the default behavior will change in a future release to error out if a non-finite total norm is encountered. At that point, setting error_if_nonfinite=false will be required to retain the old behavior.
+  torch.nn.utils.clip_grad_norm_(generator.parameters(), clipping_value)
