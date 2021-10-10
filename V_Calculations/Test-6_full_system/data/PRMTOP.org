@@ -1,0 +1,130 @@
+
+
+* Creation Notes
+** edit smd.pdb atom types 
+HN to H
+HT1 to H1
+NT HT1 etc, remove
+Now 101 atoms
+
+** pdb4amber
+pdb4amber -i data/smd.pdb -o data/da.amber.pdb
+** tleap remove atoms that are added
+tleap -f data/leap_input.txt
+#+BEGIN_SRC config
+source leaprc.protein.ff14SB
+source leaprc.water.spce
+# source leaprc.protein.ff99SB
+mypdb = loadPdb "da.amber.pdb"
+desc mypdb.1
+remove mypdb mypdb.10.11
+remove mypdb mypdb.1.2
+desc mypdb.1
+saveAmberParm mypdb full_da-3.0.prmtop full_da-3.0.crd
+quit
+#+END_SRC
+
+
+** Old
+ edit smd.pdb to exclude unknown atoms
+ pdb4amber -i data/smd.pdb -o data/da.amber.pdb
+ tleap -f data/leap_input.txt
+
+* Amber ala atom types
+** normal
+ !entry.ALA.unit.atoms table  str name  str type  int typex  int resx  int flags  int seq  int elmnt  dbl chg
+  "N" "N" 0 1 131072 1 7 -0.415700
+  "H" "H" 0 1 131072 2 1 0.271900
+  "CA" "CX" 0 1 131072 3 6 0.033700
+  "HA" "H1" 0 1 131072 4 1 0.082300
+  "CB" "CT" 0 1 131072 5 6 -0.182500
+  "HB1" "HC" 0 1 131072 6 1 0.060300
+  "HB2" "HC" 0 1 131072 7 1 0.060300
+  "HB3" "HC" 0 1 131072 8 1 0.060300
+  "C" "C" 0 1 131072 9 6 0.597300
+  "O" "O" 0 1 131072 10 8 -0.567900
+ !entry.ALA.unit.atomspertinfo table  str pname  str ptype  int ptypex  int pelmnt  dbl pchg
+  "N" "N" 0 -1 0.0
+  "H" "H" 0 -1 0.0
+  "CA" "CX" 0 -1 0.0
+  "HA" "H1" 0 -1 0.0
+  "CB" "CT" 0 -1 0.0
+  "HB1" "HC" 0 -1 0.0
+  "HB2" "HC" 0 -1 0.0
+  "HB3" "HC" 0 -1 0.0
+  "C" "C" 0 -1 0.0
+  "O" "O" 0 -1 0.0
+
+** cterm
+ !entry.CALA.unit.atoms table  str name  str type  int typex  int resx  int flags  int seq  int elmnt  dbl chg
+  "N" "N" 0 1 131072 1 7 -0.382100
+  "H" "H" 0 1 131072 2 1 0.268100
+  "CA" "CX" 0 1 131072 3 6 -0.174700
+  "HA" "H1" 0 1 131072 4 1 0.106700
+  "CB" "CT" 0 1 131072 5 6 -0.209300
+  "HB1" "HC" 0 1 131072 6 1 0.076400
+  "HB2" "HC" 0 1 131072 7 1 0.076400
+  "HB3" "HC" 0 1 131072 8 1 0.076400
+  "C" "C" 0 1 131072 9 6 0.773100
+  "O" "O2" 0 1 131072 10 8 -0.805500
+  "OXT" "O2" 0 1 131072 11 8 -0.805500
+ !entry.CALA.unit.atomspertinfo table  str pname  str ptype  int ptypex  int pelmnt  dbl pchg
+  "N" "N" 0 -1 0.0
+  "H" "H" 0 -1 0.0
+  "CA" "CX" 0 -1 0.0
+  "HA" "H1" 0 -1 0.0
+  "CB" "CT" 0 -1 0.0
+  "HB1" "HC" 0 -1 0.0
+  "HB2" "HC" 0 -1 0.0
+  "HB3" "HC" 0 -1 0.0
+  "C" "C" 0 -1 0.0
+  "O" "O2" 0 -1 0.0
+  "OXT" "O2" 0 -1 0.0
+
+** nterm
+ !entry.NALA.unit.atoms table  str name  str type  int typex  int resx  int flags  int seq  int elmnt  dbl chg
+  "N" "N3" 0 1 131072 1 7 0.141400
+  "H1" "H" 0 1 131072 2 1 0.199700
+  "H2" "H" 0 1 131072 3 1 0.199700
+  "H3" "H" 0 1 131072 4 1 0.199700
+  "CA" "CX" 0 1 131072 5 6 0.096200
+  "HA" "HP" 0 1 131072 6 1 0.088900
+  "CB" "CT" 0 1 131072 7 6 -0.059700
+  "HB1" "HC" 0 1 131072 8 1 0.030000
+  "HB2" "HC" 0 1 131072 9 1 0.030000
+  "HB3" "HC" 0 1 131072 10 1 0.030000
+  "C" "C" 0 1 131072 11 6 0.616300
+  "O" "O" 0 1 131072 12 8 -0.572200
+ !entry.NALA.unit.atomspertinfo table  str pname  str ptype  int ptypex  int pelmnt  dbl pchg
+  "N" "N3" 0 -1 0.0
+  "H1" "H" 0 -1 0.0
+  "H2" "H" 0 -1 0.0
+  "H3" "H" 0 -1 0.0
+  "CA" "CX" 0 -1 0.0
+  "HA" "HP" 0 -1 0.0
+  "CB" "CT" 0 -1 0.0
+  "HB1" "HC" 0 -1 0.0
+  "HB2" "HC" 0 -1 0.0
+  "HB3" "HC" 0 -1 0.0
+  "C" "C" 0 -1 0.0
+  "O" "O" 0 -1 0.0
+
+* Charmm prmtop
+** Moleculkit fix
+readers.py
+#+BEGIN_SRC python
+            elif section == "charges":
+                # Charmm FF prmtop correction
+                # fieldlen = 16
+                fieldlen = 24                
+                topo.charge += [
+                    float(line[i : i + fieldlen].strip()) / 18.2223
+                    for i in range(0, len(line), fieldlen)
+                    if len(line[i : i + fieldlen].strip()) != 0
+                ]  # 18.2223 = Scaling factor for charges
+
+#+END_SRC
+** parmed prep
+# Log started on 10/06/2021 [mm/dd/yyyy] at 17:45:05
+chamber -psf data/da.psf -crd data/smd_ini.pdb -param data/par_all22_prot.prm -toppar data/top_all22_prot.rtf 
+outparm data/full_da-1.3.prmtop 
