@@ -1,0 +1,30 @@
+#!/usr/bin/env python
+'''
+############################################################## 
+# Author:               John Vant 
+# Email:              jvant@asu.edu 
+# Affiliation:   ASU Biodesign Institute 
+# Date Created:          211008
+############################################################## 
+# Usage: 
+############################################################## 
+# Notes: 
+############################################################## 
+'''
+from MDAnalysis import Universe
+import MDAnalysis.analysis.encore as encore
+
+
+replica=0
+
+PSF = "../../Build/da.psf"
+DCD = "%d/smd_out.dcd"%replica
+
+sys = Universe(PSF, DCD)
+print(sys.coordinates)
+
+clustnum=0
+fout = open("./%s/output/clusters-N-term.txt"%(sys), "w")
+
+            
+exit()
