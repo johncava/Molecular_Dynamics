@@ -7,7 +7,7 @@ import numpy as np
 
 import os, sys
 THIS_DIR = os.path.dirname(os.path.abspath(""))
-THIS_DIR = os.path.join(THIS_DIR, "Mol-HNN-cuda-v3")
+THIS_DIR = os.path.join(THIS_DIR, "Mol-HNN-cuda-v4.2")
 # PARENT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # sys.path.append(PARENT_DIR)
 
@@ -134,13 +134,13 @@ args = ObjectView(get_args())
 
 #### THIS IS WHERE YOU INTERCEPT IF YOU WANT TO USE A DIFFERENT MODEL
 output_dim = 2
-#nn_model = MLP(args.input_dim, args.hidden_dim, output_dim, args.nonlinearity)
+nn_model = MLP(args.input_dim, args.hidden_dim, output_dim, args.nonlinearity)
 num_particles = 40
 channel_size = 3
 hidden_size = 32
 output_size = 2
 #nn_model = GATModel(channel_size, hidden_size, output_size).cuda()
-nn_model = SchNet(num_particles).cuda()
+#nn_model = SchNet(num_particles).cuda()
 model = HNN(args.input_dim, differentiable_model=nn_model,
         field_type=args.field_type, baseline=args.baseline)
 optim = torch.optim.Adam(model.parameters(), args.learn_rate, weight_decay=0)
