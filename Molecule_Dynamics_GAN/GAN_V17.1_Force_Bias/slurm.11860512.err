@@ -1,0 +1,4 @@
+Traceback (most recent call last):
+  File "/home/jcava/Molecular_Dynamics/Molecule_Dynamics_GAN/GAN_V17.1_Force_Bias/gan.py", line 367, in <module>
+    del target_dis
+NameError: name 'target_dis' is not defined
