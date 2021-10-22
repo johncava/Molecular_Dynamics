@@ -295,7 +295,7 @@ for epoch in range(max_epochs):
             g_optimizer.zero_grad()
             # Generator
             t,output,_ = generator(batch_size,1002)
-            output = output.view(batch_size,104*3)
+            output = output.view(batch_size,104,3)
             output = torch.cdist(output,output)
             # D(G(z)))
             pred = discriminator(t,output).squeeze(0)
@@ -317,7 +317,7 @@ for epoch in range(max_epochs):
             label = torch.ones((batch_size,1)).float().cuda()
             x = torch.tensor(data).float().cuda()
             t = x[:,:1]
-            x = x[:,1:].view(batch_size,104*3)
+            x = x[:,1:].view(batch_size,104,3)
             x = torch.cdist(x,x)
             # D(G(z)))
             pred = discriminator(t,x).squeeze(0)
@@ -327,7 +327,7 @@ for epoch in range(max_epochs):
             # Train with fake examples
             # Generator
             t,output,_ = generator(batch_size,1002)
-            output = output.view(batch_size,104*3)
+            output = output.view(batch_size,104,3)
             output = torch.cdist(output,output)
             # D(G(z)))
             pred = discriminator(t,output).squeeze(0)
@@ -346,7 +346,7 @@ for epoch in range(max_epochs):
         ###
         # (3) Update G Network: minimize log(I(G(z)))
         ###
-        for i in range(2):
+        for i in range(8):
             g_optimizer.zero_grad()
             # Generator
             _,output,t = generator(1,1002)
@@ -363,8 +363,19 @@ for epoch in range(max_epochs):
                     total_pot += potential[0][key]
                 if key == 'dihedrals':
                     total_pot += potential[0][key]
+                if epoch > 1:
+                    if key == 'impropers':
+                        total_pot += potential[0][key]
+                if epoch > 2:
+                    if key == 'lj':
+                        total_pot += potential[0][key]
+                if epoch > 3:
+                    if key == 'electrostatics':
+                        total_pot += potential[0][key]
+                    if key == 'repulsion':
+                        total_pot += potential[0][key]
             # Update generator weights
-            total_pot += potential[0]['E2End Harm']
+            #total_pot += potential[0]['E2End Harm']
             potential_loss.append(total_pot.item())
             total_pot.backward()
             clipping_value = 1 # arbitrary value of your choosing
@@ -395,7 +406,7 @@ predictions = predictions.cpu().detach().numpy()
 frame_num = predictions.shape[0]
 
 nAtoms = "40"
-outName = "GAN_2.xyz"
+outName = "GAN_8.xyz"
 with open(outName, "w") as outputfile:
     for frame_idx in range(frame_num):
         
