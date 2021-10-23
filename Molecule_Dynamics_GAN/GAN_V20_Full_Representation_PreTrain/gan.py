@@ -157,7 +157,20 @@ class Decoder(nn.Module):
         z = torch.sigmoid(self.mlp2(z))
         pred_x = self.mlp3(z)
         return pred_x
-                
+
+    def generate(self, batch_size, max_steps):
+        t = random.choices(range(max_steps),k=batch_size)
+        picked_t = t
+        t = torch.tensor(t).view(batch_size,1)
+        t = t/max_steps 
+        t = t.float().cuda()
+        z = torch.normal(0,1,size=(batch_size,31)).cuda()
+        z = torch.cat((t,z),1)
+        z = torch.sigmoid(self.mlp1(z))
+        z = torch.sigmoid(self.mlp2(z))
+        z = self.mlp3(z)
+        return t, z, picked_t
+
     def generation_step(self, t, max_steps):
         t = torch.tensor(t).view(1,1)
         t = t/max_steps 
@@ -316,7 +329,7 @@ learning_rate = 1e-3
 
 ae_optimizer = optim.Adam(list(encoder.parameters()) + list(decoder.parameters()), lr=learning_rate)
 
-max_epochs = 5
+max_epochs = 10
 
 ##
 # KL Divergence for VAE Training; taken from: https://towardsdatascience.com/variational-autoencoder-demystified-with-pytorch-implementation-3a06bee395ed
@@ -339,8 +352,10 @@ def kl_divergence(z, mu, std):
     return kl
 
 max_steps = 1002
+elbo_loss = []
 for epoch in range(max_epochs):
 
+    epoch_elbo_loss = []
     for data in training_dataset:
         x = torch.tensor(data).float().cuda()
         t = x[:,:1]
@@ -363,18 +378,19 @@ for epoch in range(max_epochs):
         recon_loss = F.mse_loss(pred_x, x)
         elbo = (kl - recon_loss)
         ae_optimizer.zero_grad()
-        elbo = elbo.mean()      
+        elbo = elbo.mean() 
+        epoch_elbo_loss.append(elbo.item())     
         elbo.backward()
         ae_optimizer.step()
+    elbo_loss.append(np.mean(epoch_elbo_loss))
 
-print('Done')
-'''
+print('VAE Done')
 ###
 # Begin GAN Training
 ###
 learning_rate = 1e-3
 
-g_optimizer = optim.Adam(generator.parameters(), lr=learning_rate)
+g_optimizer = optim.Adam(decoder.parameters(), lr=learning_rate)
 d_optimizer = optim.Adam(discriminator.parameters(),lr=learning_rate)
 
 # Initalize BCELoss function
@@ -391,9 +407,14 @@ potential_loss = []
 
 for epoch in range(max_epochs):
 
-    training_loss = []
+    epoch_generator_loss = []
+    epoch_discriminator_loss = []
+    epoch_potential_loss = []
     for data in training_dataset:
         
+        iteration_generator_loss = []
+        iteration_discriminator_loss = []
+        iteration_potential_loss = []
         for _ in range(Ng):
 
             ###
@@ -401,14 +422,14 @@ for epoch in range(max_epochs):
             ###
             g_optimizer.zero_grad()
             # Generator
-            t,output,_ = generator(batch_size,1002)
+            t,output,_ = decoder.generate(batch_size,1002)
             output = output.view(batch_size,104,3)
             output = torch.cdist(output,output)
             # D(G(z)))
             pred = discriminator(t,output).squeeze(0)
             label =  torch.ones((batch_size,1)).float().cuda()
             g_fake = criterion(pred, label)
-            generator_loss.append(g_fake.item())
+            iteration_generator_loss.append(g_fake.item())
             g_fake.backward()
             # Update generator weights
             g_optimizer.step()
@@ -416,6 +437,7 @@ for epoch in range(max_epochs):
             del t
             del output 
 
+        epoch_generator_loss.append(np.mean(iteration_generator_loss))
         for _ in range(Nd):
             ###
             # (1) Update D Network: maximize log(D(x)) + log (1 - D(G(z)))
@@ -433,14 +455,14 @@ for epoch in range(max_epochs):
 
             # Train with fake examples
             # Generator
-            t,output,_ = generator(batch_size,1002)
+            t,output,_ = decoder.generate(batch_size,1002)
             output = output.view(batch_size,104,3)
             output = torch.cdist(output,output)
             # D(G(z)))
             pred = discriminator(t,output).squeeze(0)
             label = torch.zeros((batch_size,1)).float().cuda()
             d_fake = criterion(pred, label)
-            discriminator_loss.append(d_fake.item() + d_real.item())
+            iteration_discriminator_loss.append(d_fake.item() + d_real.item())
             d_fake.backward()
             # Update discriminator weights after loss backward from BOTH d_real AND d_fake examples
             d_optimizer.step()
@@ -448,7 +470,7 @@ for epoch in range(max_epochs):
             del x
             del t
             del output
-
+        epoch_discriminator_loss.append(np.mean(iteration_discriminator_loss))
 
         ###
         # (3) Update G Network: minimize log(I(G(z)))
@@ -456,7 +478,7 @@ for epoch in range(max_epochs):
         for i in range(8):
             g_optimizer.zero_grad()
             # Generator
-            _,output,t = generator(1,1002)
+            _,output,t = decoder.generate(1,1002)
             output = output.view(1,312).view(104,3,1)
             # D(G(z)))
             #output = output.detach().cpu()
@@ -482,29 +504,35 @@ for epoch in range(max_epochs):
                     if key == 'repulsion':
                         total_pot += potential[0][key]
             # Update generator weights
-            #total_pot += potential[0]['E2End Harm']
-            potential_loss.append(total_pot.item())
+            total_pot += potential[0]['E2End Harm']
+            iteration_potential_loss.append(total_pot.item())
             total_pot.backward()
             clipping_value = 1 # arbitrary value of your choosing
-            torch.nn.utils.clip_grad_norm_(generator.parameters(), clipping_value)
+            torch.nn.utils.clip_grad_norm_(decoder.parameters(), clipping_value)
             g_optimizer.step()
 
             del sys_decal
             del t, output
             del potential
             del total_pot
+        
+        epoch_potential_loss.append(np.mean(iteration_potential_loss))
+ 
+    generator_loss.append(np.mean(epoch_generator_loss))
+    discriminator_loss.append(np.mean(epoch_discriminator_loss))
+    potential_loss.append(np.mean(epoch_potential_loss))
 
-print('Done Done')
+print('Done')
 
 ##
 # Generation
 ##
-generator.eval()
+decoder.eval()
 # Go through the reaction coordinate of the trajectory
 max_generation_steps = 10
 predictions = []
 for t in range(max_generation_steps):
-    gen_frame = generator.generation_step(t, max_generation_steps)
+    gen_frame = decoder.generation_step(t, max_generation_steps)
     predictions.append(gen_frame.view(104,3))
 
 predictions = torch.stack(predictions)
@@ -549,5 +577,11 @@ plt.plot(range(len(potential_loss)), potential_loss)
 plt.xlabel('Iterations')
 plt.ylabel('Loss')
 plt.savefig('potential_loss.png')
-'''
 
+plt.figure()
+plt.plot(range(len(elbo_loss)), elbo_loss)
+plt.xlabel('Iterations')
+plt.ylabel('Loss')
+plt.savefig('elbo_loss.png')
+
+print('Done Done')
