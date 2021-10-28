@@ -1,0 +1,10 @@
+source leaprc.protein.ff14SB
+source leaprc.water.spce
+# source leaprc.protein.ff99SB
+mypdb = loadPdb "da.amber.pdb"
+desc mypdb.1
+remove mypdb mypdb.10.11
+remove mypdb mypdb.1.2
+desc mypdb.1
+saveAmberParm mypdb full_da-3.0.prmtop full_da-3.0.crd
+quit

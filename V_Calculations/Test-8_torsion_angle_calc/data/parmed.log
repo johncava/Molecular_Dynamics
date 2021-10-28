@@ -1,0 +1,8 @@
+# Log started on 10/06/2021 [mm/dd/yyyy] at 17:39:03
+ls
+chamber -psf data/da.psf -crd data/smd_ini.pdb -param data/par_all27_prot_lipid_cmap.prm 
+chamber -psf data/da.psf -crd data/smd_ini.pdb -param data/par_all22_prot.prm 
+outparm data/full_da-1.1.prmtop
+# Log started on 10/06/2021 [mm/dd/yyyy] at 17:45:05
+chamber -psf data/da.psf -crd data/smd_ini.pdb -param data/par_all22_prot.prm -toppar data/top_all22_prot.rtf 
+outparm data/full_da-1.2.prmtop 
