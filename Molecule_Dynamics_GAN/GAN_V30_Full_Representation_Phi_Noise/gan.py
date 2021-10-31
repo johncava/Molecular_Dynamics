@@ -513,7 +513,7 @@ for epoch in range(max_epochs):
             t = x[:,:1]
             pt = t.clone().cpu().detach().numpy().tolist()
             x = x[:,1:]
-            x = x + torch.randn(0,0.5,size=x.size()).float().cuda()
+            x = x + torch.normal(0,0.5,size=x.size()).float().cuda()
             x = x.view(batch_size,104*3)
             # D(G(z)))
             phis = []
