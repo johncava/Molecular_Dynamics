@@ -1,0 +1,22 @@
+/var/spool/slurmd/job12186721/slurm_script: line 14: activate: No such file or directory
+/home/jcava/Molecular_Dynamics/Molecule_Dynamics_GAN/GAN_V33.2_Full_Representation_Pretrain_Batch_Positon/gan.py:440: FutureWarning: Non-finite norm encountered in torch.nn.utils.clip_grad_norm_; continuing anyway. Note that the default behavior will change in a future release to error out if a non-finite total norm is encountered. At that point, setting error_if_nonfinite=false will be required to retain the old behavior.
+  torch.nn.utils.clip_grad_norm_(decoder.parameters(), clipping_value)
+
+CommandNotFoundError: Your shell has not been properly configured to use 'conda deactivate'.
+To initialize your shell, run
+
+    $ conda init <SHELL_NAME>
+
+Currently supported shells are:
+  - bash
+  - fish
+  - tcsh
+  - xonsh
+  - zsh
+  - powershell
+
+See 'conda init --help' for more information and options.
+
+IMPORTANT: You may need to close and restart your shell after running 'conda init'.
+
+
