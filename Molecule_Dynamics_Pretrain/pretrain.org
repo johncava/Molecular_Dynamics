@@ -1,0 +1,62 @@
+* Versions
+** Pretrain_Backbone_JV-2.0.0
+#+BEGIN_SRC python
+alpha = torch.tensor(epoch/max_epochs).float().cuda()
+#+END_SRC
+
+** Pretrain_Backbone_JV-2.0.1
+#+BEGIN_SRC python
+alpha = torch.tensor((epoch+1)/(max_epochs+1)).float().cuda()
+#+END_SRC
+
+** Pretrain_Backbone_JV-2.0.2
+#+BEGIN_SRC python
+            alpha = torch.tensor(epoch/max_epochs).float().cuda()
+            one = torch.tensor(1.0).float().cuda()
+            bonds_factor = torch.tensor(1.0).float().cuda()
+            angle_factor = torch.tensor(1.0).float().cuda() * alpha
+            dihedral_factor = torch.tensor(1.0).float().cuda() * alpha * alpha
+            improper_factor = torch.tensor(1.0).float().cuda() * alpha * alpha
+            lj_factor = torch.tensor(1.0).float().cuda()
+            electrostatics_factor = torch.tensor(1.0).float().cuda() * alpha * alpha * alpha
+            dis_factor = torch.tensor(1.0).float().cuda()
+
+#+END_SRC
+
+** Pretrain_Backbone_JV-2.0.3
+
+#+BEGIN_SRC python
+            alpha = torch.tensor(epoch/max_epochs).float().cuda()
+            one = torch.tensor(1.0).float().cuda()
+            bonds_factor = torch.tensor(1.0).float().cuda()
+            angle_factor = torch.tensor(1.0).float().cuda() * alpha
+            dihedral_factor = torch.tensor(1.0).float().cuda() * alpha * alpha
+            improper_factor = torch.tensor(1.0).float().cuda() * alpha * alpha
+            lj_factor = torch.tensor(1.0).float().cuda()
+            electrostatics_factor = torch.tensor(0.0).float().cuda() * alpha * alpha * alpha
+            dis_factor = torch.tensor(1.0).float().cuda()
+
+            total_loss = alpha*total_pot + (one - alpha * alpha)*total_phi
+
+#+END_SRC
+
+** Pretrain_Backbone_JV-2.0.4 Dist matrix
+dist matrix
+
+#+BEGIN_SRC python
+            alpha = torch.tensor(epoch/max_epochs).float().cuda()
+            one = torch.tensor(1.0).float().cuda()
+            bonds_factor = torch.tensor(1.0).float().cuda()
+            angle_factor = torch.tensor(1.0).float().cuda() * alpha
+            dihedral_factor = torch.tensor(1.0).float().cuda() * alpha * alpha
+            improper_factor = torch.tensor(1.0).float().cuda() * alpha * alpha
+            lj_factor = torch.tensor(1.0).float().cuda()
+            electrostatics_factor = torch.tensor(0.0).float().cuda() * alpha * alpha * alpha
+            dis_factor = torch.tensor(1.0).float().cuda()
+
+            total_loss = alpha*total_pot + (one - alpha * alpha)*total_phi + recon_loss
+
+#+END_SRC
+
+
+** Pretrain_Backbone_JV-2.0.4 Dist matrix

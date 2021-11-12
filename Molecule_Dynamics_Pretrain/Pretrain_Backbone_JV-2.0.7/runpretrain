@@ -1,0 +1,2 @@
+python pretrain.py
+echo "tail -f loggy.log"

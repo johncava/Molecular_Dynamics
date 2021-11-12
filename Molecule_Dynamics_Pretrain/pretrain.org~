@@ -1,0 +1,6 @@
+* Versions
+** Pretrain_Backbone_JV-2.0.0
+alpha = torch.tensor(epoch/max_epochs).float().cuda()
+** Pretrain_Backbone_JV-2.0.1
+alpha = torch.tensor((epoch+1)/(max_epochs+1)).float().cuda()
+
