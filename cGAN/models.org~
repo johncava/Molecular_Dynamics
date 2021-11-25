@@ -1,0 +1,18 @@
+* Models in cGAN
+** cGAN_D_pos-1.1.0/
+finally getting stretching again.
+
+whiten yes
+D pos
+G energy only
+max_epochs_GAN = 12
+Ng = 1
+Nd = 1
+Ni = 5
+
+V_intro_epoch = 20
+max_epochs_pre = 40
+dist_decline_epoch = 30
+V_only_epoch = 35
+
+batch_size = 64
