@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "/home/jcava/Molecular_Dynamics/cGAN/cGAN_D_pos-2.1.0/cgan.py", line 600, in <module>
+    total_loss = update_pretrain(pretrain_optimizer, data, decoder, V_intro_epoch, dist_decline_epoch, V_only_epoch)
+  File "/home/jcava/Molecular_Dynamics/cGAN/cGAN_D_pos-2.1.0/cgan.py", line 345, in update_pretrain
+    dist_pred = torch.cdist(pred_x.view(bs,num_atoms,3),pred_x.view(bs,num_atoms,3))
+  File "/home/jcava/.conda/envs/pytorch-geometric/lib/python3.9/site-packages/torch/functional.py", line 1049, in cdist
+    return _VF.cdist(x1, x2, p, None)  # type: ignore[attr-defined]
+RuntimeError: CUDA out of memory. Tried to allocate 20.00 MiB (GPU 0; 11.17 GiB total capacity; 10.76 GiB already allocated; 15.81 MiB free; 10.76 GiB reserved in total by PyTorch)

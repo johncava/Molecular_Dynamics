@@ -341,7 +341,8 @@ def update_pretrain(pretrain_optimizer, data, decoder, V_intro_epoch, dist_decli
         potential, _ = pred_sys.calc_energy(px.view(num_atoms,3,1), pt)
         total_pot += torch.div(torch.sum(torch.stack(
             [potential[0][key] for key in potential[0].keys() if not key == 'E2End Harm'])),bs)
-        total_pot += torch.div(torch.tensor(200.0).float().cuda()*potential[0]['E2End Harm'], bs)
+        total_pot += torch.div(torch.tensor(200.0).float().cuda()*potential[0]['E2End Harm'], bs
+        del px, pt
     dist_pred = torch.cdist(pred_x.view(bs,num_atoms,3),pred_x.view(bs,num_atoms,3))
     dist_target = torch.cdist(x.view(bs,num_atoms,3),x.view(bs,num_atoms,3))
     recon_loss = dis_factor*F.mse_loss(dist_pred, dist_target)
@@ -427,6 +428,7 @@ def update_G_net(decoder):
         total_pot += torch.div(torch.sum(torch.stack(
             [potential[0][key] for key in potential[0].keys() if not key == 'E2End Harm'])),bs)
         total_pot += torch.div(torch.tensor(200.0).float().cuda()*potential[0]['E2End Harm'], bs)
+        del out, t
     print("Generator Potential", total_pot.item())
     iteration_potential_loss.append(total_pot.item())
     total_pot.backward()
@@ -511,7 +513,7 @@ def save_data_xyz(frames, outfileName):
 ###
 # Important Variables and Settings
 ###
-batch_size = 64
+batch_size = 32
 seed = 666
 # Data config
 stride = 10

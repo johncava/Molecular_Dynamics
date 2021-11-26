@@ -1,0 +1,1402 @@
+=> Start loading data <=
+Trajectory length of file raw-traj_rep-47.npy after stride: 1001
+Trajectory length of file raw-traj_rep-22.npy after stride: 1001
+Trajectory length of file raw-traj_rep-44.npy after stride: 1001
+Trajectory length of file raw-traj_rep-42.npy after stride: 1001
+Trajectory length of file raw-traj_rep-5.npy after stride: 1001
+Trajectory length of file raw-traj_rep-19.npy after stride: 1001
+Trajectory length of file raw-traj_rep-41.npy after stride: 1001
+Trajectory length of file raw-traj_rep-21.npy after stride: 1001
+Trajectory length of file raw-traj_rep-38.npy after stride: 1001
+Trajectory length of file raw-traj_rep-33.npy after stride: 1001
+Trajectory length of file raw-traj_rep-26.npy after stride: 1001
+Trajectory length of file raw-traj_rep-25.npy after stride: 1001
+Trajectory length of file raw-traj_rep-34.npy after stride: 1001
+Trajectory length of file raw-traj_rep-12.npy after stride: 1001
+Trajectory length of file raw-traj_rep-31.npy after stride: 1001
+Trajectory length of file raw-traj_rep-7.npy after stride: 1001
+Trajectory length of file raw-traj_rep-8.npy after stride: 1001
+Trajectory length of file raw-traj_rep-11.npy after stride: 1001
+Trajectory length of file raw-traj_rep-2.npy after stride: 1001
+Trajectory length of file raw-traj_rep-17.npy after stride: 1001
+Trajectory length of file raw-traj_rep-3.npy after stride: 1001
+Trajectory length of file raw-traj_rep-20.npy after stride: 1001
+Trajectory length of file raw-traj_rep-45.npy after stride: 1001
+Trajectory length of file raw-traj_rep-32.npy after stride: 1001
+Trajectory length of file raw-traj_rep-9.npy after stride: 1001
+Trajectory length of file raw-traj_rep-30.npy after stride: 1001
+Trajectory length of file raw-traj_rep-6.npy after stride: 1001
+Trajectory length of file raw-traj_rep-36.npy after stride: 1001
+Trajectory length of file raw-traj_rep-35.npy after stride: 1001
+Trajectory length of file raw-traj_rep-49.npy after stride: 1001
+Trajectory length of file raw-traj_rep-39.npy after stride: 1001
+Trajectory length of file raw-traj_rep-4.npy after stride: 1001
+Trajectory length of file raw-traj_rep-40.npy after stride: 1001
+Trajectory length of file raw-traj_rep-29.npy after stride: 1001
+Trajectory length of file raw-traj_rep-37.npy after stride: 1001
+Trajectory length of file raw-traj_rep-48.npy after stride: 1001
+Trajectory length of file raw-traj_rep-10.npy after stride: 1001
+Trajectory length of file raw-traj_rep-27.npy after stride: 1001
+Trajectory length of file raw-traj_rep-18.npy after stride: 1001
+Trajectory length of file raw-traj_rep-16.npy after stride: 1001
+Trajectory length of file raw-traj_rep-13.npy after stride: 1001
+Trajectory length of file raw-traj_rep-23.npy after stride: 1001
+Trajectory length of file raw-traj_rep-0.npy after stride: 1001
+Trajectory length of file raw-traj_rep-43.npy after stride: 1001
+Trajectory length of file raw-traj_rep-15.npy after stride: 1001
+Trajectory length of file raw-traj_rep-14.npy after stride: 1001
+Trajectory length of file raw-traj_rep-1.npy after stride: 1001
+Trajectory length of file raw-traj_rep-24.npy after stride: 1001
+Trajectory length of file raw-traj_rep-46.npy after stride: 1001
+Trajectory length of file raw-traj_rep-28.npy after stride: 1001
+frame num 1001
+=> Start NN Initialization <=
+=> Start loading data <=
+Trajectory length of file raw-traj_rep-47.npy after stride: 20
+Trajectory length of file raw-traj_rep-22.npy after stride: 20
+Trajectory length of file raw-traj_rep-44.npy after stride: 20
+Trajectory length of file raw-traj_rep-42.npy after stride: 20
+Trajectory length of file raw-traj_rep-5.npy after stride: 20
+Trajectory length of file raw-traj_rep-19.npy after stride: 20
+Trajectory length of file raw-traj_rep-41.npy after stride: 20
+Trajectory length of file raw-traj_rep-21.npy after stride: 20
+Trajectory length of file raw-traj_rep-38.npy after stride: 20
+Trajectory length of file raw-traj_rep-33.npy after stride: 20
+Trajectory length of file raw-traj_rep-26.npy after stride: 20
+Trajectory length of file raw-traj_rep-25.npy after stride: 20
+Trajectory length of file raw-traj_rep-34.npy after stride: 20
+Trajectory length of file raw-traj_rep-12.npy after stride: 20
+Trajectory length of file raw-traj_rep-31.npy after stride: 20
+Trajectory length of file raw-traj_rep-7.npy after stride: 20
+Trajectory length of file raw-traj_rep-8.npy after stride: 20
+Trajectory length of file raw-traj_rep-11.npy after stride: 20
+Trajectory length of file raw-traj_rep-2.npy after stride: 20
+Trajectory length of file raw-traj_rep-17.npy after stride: 20
+Trajectory length of file raw-traj_rep-3.npy after stride: 20
+Trajectory length of file raw-traj_rep-20.npy after stride: 20
+Trajectory length of file raw-traj_rep-45.npy after stride: 20
+Trajectory length of file raw-traj_rep-32.npy after stride: 20
+Trajectory length of file raw-traj_rep-9.npy after stride: 20
+Trajectory length of file raw-traj_rep-30.npy after stride: 20
+Trajectory length of file raw-traj_rep-6.npy after stride: 20
+Trajectory length of file raw-traj_rep-36.npy after stride: 20
+Trajectory length of file raw-traj_rep-35.npy after stride: 20
+Trajectory length of file raw-traj_rep-49.npy after stride: 20
+Trajectory length of file raw-traj_rep-39.npy after stride: 20
+Trajectory length of file raw-traj_rep-4.npy after stride: 20
+Trajectory length of file raw-traj_rep-40.npy after stride: 20
+Trajectory length of file raw-traj_rep-29.npy after stride: 20
+Trajectory length of file raw-traj_rep-37.npy after stride: 20
+Trajectory length of file raw-traj_rep-48.npy after stride: 20
+Trajectory length of file raw-traj_rep-10.npy after stride: 20
+Trajectory length of file raw-traj_rep-27.npy after stride: 20
+Trajectory length of file raw-traj_rep-18.npy after stride: 20
+Trajectory length of file raw-traj_rep-16.npy after stride: 20
+Trajectory length of file raw-traj_rep-13.npy after stride: 20
+Trajectory length of file raw-traj_rep-23.npy after stride: 20
+Trajectory length of file raw-traj_rep-0.npy after stride: 20
+Trajectory length of file raw-traj_rep-43.npy after stride: 20
+Trajectory length of file raw-traj_rep-15.npy after stride: 20
+Trajectory length of file raw-traj_rep-14.npy after stride: 20
+Trajectory length of file raw-traj_rep-1.npy after stride: 20
+Trajectory length of file raw-traj_rep-24.npy after stride: 20
+Trajectory length of file raw-traj_rep-46.npy after stride: 20
+Trajectory length of file raw-traj_rep-28.npy after stride: 20
+frame num 1001
+Pre-Training Dataset size: 1000
+
+===> Starting pre-train epoch 0 <===
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[1.9552e+23]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 48.036155700683594
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[8.4365e+26]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 36.81378936767578
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[4.0986e+25]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 26.342571258544922
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[3.9398e+25]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 18.79123878479004
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[8.4571e+19]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 15.574603080749512
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[4.9566e+16]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 16.075632095336914
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[7.6088e+14]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 17.728322982788086
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[1.9119e+11]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 18.193403244018555
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[9.1406e+10]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 17.300580978393555
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[7.2659e+10]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 15.190982818603516
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[7.9790e+10]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 12.807080268859863
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[1.1024e+10]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 10.722721099853516
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[6.5336e+08]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 9.381980895996094
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[3.7871e+11]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 8.586008071899414
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[3.6338e+11]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 8.262100219726562
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[8.3409e+14]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 8.010971069335938
+
+===> Finished Epoch 0 in 45.89 s <===
+
+Mean epoch pretrain loss: 0.01798863470321521
+Pre-Training is 2.0000 % complete
+
+===> Starting pre-train epoch 1 <===
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[5.3481e+12]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 7.743893623352051
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[2.1054e+13]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 7.319164276123047
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[8.4517e+13]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 6.724798679351807
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[1.2435e+14]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 6.1874518394470215
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[1.0935e+14]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 5.68833065032959
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[3.1779e+13]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 5.363813400268555
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[4.7639e+12]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 5.197505474090576
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[9.8551e+11]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 5.148963928222656
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[8.1738e+12]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 5.001825332641602
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[2.9696e+12]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 4.808053493499756
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[1.2558e+12]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 4.464859485626221
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[8.8920e+12]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 4.0594563484191895
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[9.5594e+11]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 3.7010340690612793
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[3.2820e+11]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 3.3797101974487305
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[5.5715e+11]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 3.152268648147583
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[4.6539e+12]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 3.0033562183380127
+
+===> Finished Epoch 1 in 53.05 s <===
+
+Mean epoch pretrain loss: 0.005059030605480075
+Pre-Training is 4.0000 % complete
+
+===> Starting pre-train epoch 2 <===
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[1.4306e+14]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 2.8494584560394287
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[1.6366e+16]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 2.6854429244995117
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[3.4964e+20]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 2.4850544929504395
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[1.1221e+17]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 2.2550060749053955
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[3.6633e+13]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 2.1024329662323
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[1.7098e+11]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 1.9957174062728882
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[3.2390e+09]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 1.9405909776687622
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[3.9199e+08]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 1.8864585161209106
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[6.9789e+08]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 1.8156707286834717
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[7.3474e+08]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 1.7181414365768433
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[6.5891e+10]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 1.5963526964187622
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[9.8919e+15]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 1.4878714084625244
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[3.4381e+12]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 1.4115606546401978
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[5.7166e+08]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 1.3398432731628418
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[27935252.]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 1.3032418489456177
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[9008115.]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 1.221778392791748
+
+===> Finished Epoch 2 in 46.61 s <===
+
+Mean epoch pretrain loss: 0.0018809139655786566
+Pre-Training is 6.0000 % complete
+
+===> Starting pre-train epoch 3 <===
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[6746304.]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 1.1588218212127686
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[7149001.]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 1.0818133354187012
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[8841179.]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 1.0455108880996704
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[18513330.]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 0.9749734401702881
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[79557440.]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 0.9468908309936523
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[6.2283e+08]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 0.9044304490089417
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[2.2856e+09]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 0.8580172657966614
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[6.3637e+09]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 0.8393648862838745
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[3.9121e+10]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 0.8048648238182068
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[4.5816e+11]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 0.7775462865829468
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[3.3501e+12]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 0.7219764590263367
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[8.2599e+12]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 0.7000758051872253
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[4.1591e+12]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 0.6728771328926086
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[3.6684e+11]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 0.6166604161262512
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[2.5698e+10]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 0.5943232774734497
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[1.9921e+09]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 0.5915322303771973
+
+===> Finished Epoch 3 in 48.71 s <===
+
+Mean epoch pretrain loss: 0.0008306050040118862
+Pre-Training is 8.0000 % complete
+
+===> Starting pre-train epoch 4 <===
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[1.7437e+08]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 0.5375097990036011
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[22655370.]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 0.5170158743858337
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[14472795.]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 0.5132544040679932
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[1.2866e+08]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 0.47476938366889954
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[3.9671e+08]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 0.45691388845443726
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[1.9752e+08]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 0.4406585693359375
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[24969166.]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 0.43584099411964417
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[21776106.]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 0.39670324325561523
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[55521004.]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 0.37985870242118835
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[89931328.]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 0.3619535267353058
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[72638984.]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 0.3288525640964508
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[33321082.]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 0.3237902522087097
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[9716392.]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 0.30165764689445496
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[2337392.7500]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 0.3102695941925049
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[566695.3125]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 0.28706637024879456
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[161013.1250]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 0.293843537569046
+
+===> Finished Epoch 4 in 48.55 s <===
+
+Mean epoch pretrain loss: 0.00039749741699779406
+Pre-Training is 10.0000 % complete
+
+===> Starting pre-train epoch 5 <===
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[53302.3789]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 0.28915897011756897
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[27419.3125]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 0.2558022737503052
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[19939.7129]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 0.2546035647392273
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[17070.4395]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 0.2651747465133667
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[15190.4268]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 0.2492663413286209
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[14022.6992]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 0.23425984382629395
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[12998.2773]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 0.24461640417575836
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[12107.2500]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 0.2461109310388565
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[11398.6992]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 0.21739937365055084
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[10672.4619]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 0.2069529891014099
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[10052.8691]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 0.22416731715202332
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[9419.7793]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 0.2101229578256607
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[8861.5264]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 0.22033777832984924
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[8463.7217]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 0.2004038542509079
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[8040.2144]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 0.19596168398857117
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[7778.2480]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 0.23402240872383118
+
+===> Finished Epoch 5 in 46.56 s <===
+
+Mean epoch pretrain loss: 0.00023427260202879552
+Pre-Training is 12.0000 % complete
+
+===> Starting pre-train epoch 6 <===
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[7806.6538]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 0.186165913939476
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[8302.2510]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 0.19196468591690063
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[10061.1660]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 0.17848753929138184
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[16928.9336]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 0.16815558075904846
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[23118.5430]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 0.2056245505809784
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[33718.9336]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 0.16239573061466217
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[29418.5723]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 0.17017437517642975
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[21259.9434]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 0.16543331742286682
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[18132.6992]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 0.19220013916492462
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[23393.0801]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 0.17181777954101562
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[18499.3262]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 0.138443261384964
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[7930.8623]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 0.14414897561073303
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[3084.8616]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 0.148786723613739
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[1906.1033]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 0.1437775045633316
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[1562.6260]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 0.13627474009990692
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[1388.6028]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 0.12205935269594193
+
+===> Finished Epoch 6 in 46.11 s <===
+
+Mean epoch pretrain loss: 0.0001641193930481677
+Pre-Training is 14.0000 % complete
+
+===> Starting pre-train epoch 7 <===
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[1257.9355]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 0.11719917505979538
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[1159.2212]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 0.11104355752468109
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[1093.5897]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 0.10919557511806488
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[1041.8076]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 0.09980227053165436
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[1005.2443]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 0.11528816819190979
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[973.8669]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 0.1076677218079567
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[941.8402]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 0.09807673841714859
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[907.5924]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 0.09508851170539856
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[877.1790]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 0.1015026643872261
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[852.3295]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 0.09436362236738205
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[831.0808]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 0.09889473021030426
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[821.0732]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 0.08099092543125153
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[817.5574]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 0.10982673615217209
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[817.5992]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 0.09880321472883224
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[821.6873]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 0.09891275316476822
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[820.9541]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 0.08550161868333817
+
+===> Finished Epoch 7 in 45.65 s <===
+
+Mean epoch pretrain loss: 0.00010138487914446159
+Pre-Training is 16.0000 % complete
+
+===> Starting pre-train epoch 8 <===
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[817.9219]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 0.11012287437915802
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[816.8713]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 0.10429651290178299
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[812.2535]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 0.11717023700475693
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[801.1936]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 0.09598778188228607
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[795.7454]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 0.085664764046669
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[793.2999]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 0.09656200557947159
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[787.3240]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 0.09946592897176743
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[784.2203]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 0.08573255687952042
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[787.8736]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 0.0925118699669838
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[778.3049]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 0.06638307869434357
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[773.4534]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 0.09288643300533295
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[773.7239]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 0.10218727588653564
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[769.5567]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 0.08388874679803848
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[765.6495]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 0.09616868942975998
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[759.4615]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 0.0833153948187828
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[753.5641]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 0.10817851126194
+
+===> Finished Epoch 8 in 52.32 s <===
+
+Mean epoch pretrain loss: 9.503267074251198e-05
+Pre-Training is 18.0000 % complete
+
+===> Starting pre-train epoch 9 <===
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[749.5364]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 0.11837860941886902
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[744.8304]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 0.09849988669157028
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[749.9346]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 0.1022486761212349
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[749.5221]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 0.08068621158599854
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[747.6541]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 0.09679906070232391
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[742.0853]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 0.0816003680229187
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[742.3391]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 0.10225056856870651
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[738.5978]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 0.0746244266629219
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[736.3263]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 0.09644906967878342
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[738.0076]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 0.07899300009012222
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[737.7407]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 0.08502200990915298
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[738.2646]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 0.10175541788339615
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[738.2039]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 0.08718518167734146
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[740.2298]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 0.09167103469371796
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[738.4531]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 0.0810680016875267
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[737.5482]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 0.11620409041643143
+
+===> Finished Epoch 9 in 49.17 s <===
+
+Mean epoch pretrain loss: 9.333973139291629e-05
+Pre-Training is 20.0000 % complete
+
+===> Starting pre-train epoch 10 <===
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[738.1913]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 0.10615959763526917
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[733.5951]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 0.1218089759349823
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[735.5136]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 0.09402867406606674
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[736.4039]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 0.08028297126293182
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[736.1212]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 0.0881991758942604
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[743.1089]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 0.09310896694660187
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[745.8330]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 0.08951549977064133
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[748.5368]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 0.09031613171100616
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[743.0720]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 0.07868349552154541
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[738.3623]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 0.07353764772415161
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[732.1809]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 0.0801861360669136
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[731.3476]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 0.08819158375263214
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[731.3968]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 0.1024550274014473
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[732.5125]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 0.10409891605377197
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[733.5204]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 0.09580230712890625
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[735.0381]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 0.09744438529014587
+
+===> Finished Epoch 10 in 54.80 s <===
+
+Mean epoch pretrain loss: 9.273872274206951e-05
+Pre-Training is 22.0000 % complete
+
+===> Starting pre-train epoch 11 <===
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[740.5466]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 0.10105714201927185
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[740.0170]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 0.08122516423463821
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[738.2141]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 0.08760673552751541
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[735.5601]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 0.08203735947608948
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[735.3308]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 0.0992041602730751
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[737.2415]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 0.09508027881383896
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[738.7144]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 0.08502288907766342
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[746.0174]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 0.0783325657248497
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[746.0959]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 0.07967647910118103
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[743.0598]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 0.08461379259824753
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[734.5038]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 0.10564887523651123
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[731.2551]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 0.11291909217834473
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[727.6636]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 0.1148703470826149
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[727.8190]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 0.09399943798780441
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[730.2589]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 0.09151215106248856
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[733.3207]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 0.08784487843513489
+
+===> Finished Epoch 11 in 45.34 s <===
+
+Mean epoch pretrain loss: 9.254071392206242e-05
+Pre-Training is 24.0000 % complete
+
+===> Starting pre-train epoch 12 <===
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[740.6152]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 0.0934043601155281
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[743.2250]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 0.1054588183760643
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[740.7585]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 0.08817233890295029
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[732.0521]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 0.07527808845043182
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[723.6912]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 0.10425637662410736
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[722.8201]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 0.08762037009000778
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[723.5641]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 0.09367816895246506
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[724.1626]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 0.11117059737443924
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[731.0026]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 0.07682867348194122
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[737.7853]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 0.101493701338768
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[736.8010]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 0.10150400549173355
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[740.3311]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 0.09716090559959412
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[734.6389]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 0.08188102394342422
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[736.8400]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 0.08501569926738739
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[732.7610]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 0.08156514167785645
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[739.9105]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 0.10356079041957855
+
+===> Finished Epoch 12 in 44.83 s <===
+
+Mean epoch pretrain loss: 9.300307056037127e-05
+Pre-Training is 26.0000 % complete
+
+===> Starting pre-train epoch 13 <===
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[740.6315]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 0.08330893516540527
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[741.8315]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 0.0916934609413147
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[745.0082]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 0.07889223843812943
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[739.7809]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 0.09664639830589294
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[736.3622]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 0.0780191570520401
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[735.4183]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 0.09197281301021576
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[737.2042]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 0.0894857794046402
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[737.2000]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 0.08773184567689896
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[737.6608]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 0.08502571284770966
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[735.7452]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 0.10863805562257767
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[733.3209]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 0.10098619014024734
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[730.9371]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 0.10499357432126999
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[730.8461]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 0.09380971640348434
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[730.0616]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 0.08000509440898895
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[733.2156]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 0.10625535994768143
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[733.4190]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 0.1021752879023552
+
+===> Finished Epoch 13 in 45.12 s <===
+
+Mean epoch pretrain loss: 9.247748039342696e-05
+Pre-Training is 28.0000 % complete
+
+===> Starting pre-train epoch 14 <===
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[728.8978]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 0.10113225132226944
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[732.9548]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 0.08581745624542236
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[732.5785]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 0.09633009135723114
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[728.7355]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 0.08510994166135788
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[727.1804]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 0.11004285514354706
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[727.3002]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 0.09724167734384537
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[728.1453]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 0.07351557910442352
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[724.7982]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 0.11124612390995026
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[725.4892]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 0.09930845350027084
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[731.5629]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 0.08939456939697266
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[735.6301]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 0.07409313321113586
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[735.3163]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 0.08853000402450562
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[744.3152]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 0.10310894250869751
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[736.9641]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 0.08531065285205841
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[735.4855]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 0.07843860983848572
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[734.5601]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 0.11072651296854019
+
+===> Finished Epoch 14 in 44.87 s <===
+
+Mean epoch pretrain loss: 9.308418384534889e-05
+Pre-Training is 30.0000 % complete
+
+===> Starting pre-train epoch 15 <===
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[736.7607]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 0.08753342926502228
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[738.2724]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 0.08402455598115921
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[739.5792]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 0.09942571818828583
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[740.1151]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 0.08378475904464722
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[739.8348]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 0.10428478568792343
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[734.9902]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 0.10084813833236694
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[731.8591]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 0.09479781240224838
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[732.0296]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 0.09022241085767746
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[727.1329]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 0.07570968568325043
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[726.5906]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 0.08426516503095627
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[726.5892]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 0.09228441119194031
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[725.1267]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 0.09386052936315536
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[723.4125]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 0.08636225759983063
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[728.6360]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 0.11129230260848999
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[731.3177]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 0.08903784304857254
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[737.1196]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 0.10185562819242477
+
+===> Finished Epoch 15 in 44.99 s <===
+
+Mean epoch pretrain loss: 9.247434354620054e-05
+Pre-Training is 32.0000 % complete
+
+===> Starting pre-train epoch 16 <===
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[739.0673]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 0.09990572929382324
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[739.1915]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 0.08694525063037872
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[738.3277]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 0.0889396071434021
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[737.2497]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 0.10506249964237213
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[738.4933]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 0.09486733376979828
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[737.8643]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 0.09512647241353989
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[737.7926]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 0.09128232300281525
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[736.8561]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 0.09042077511548996
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[741.1722]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 0.08633654564619064
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[740.1361]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 0.09787096083164215
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[730.6511]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 0.09141380339860916
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[729.0411]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 0.09332362562417984
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[724.9052]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 0.08931984752416611
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[722.7954]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 0.08565565198659897
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[723.3174]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 0.08163135498762131
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[729.2778]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 0.10392069816589355
+
+===> Finished Epoch 16 in 46.31 s <===
+
+Mean epoch pretrain loss: 9.262641015084228e-05
+Pre-Training is 34.0000 % complete
+
+===> Starting pre-train epoch 17 <===
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[730.7407]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 0.07580867409706116
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[732.6203]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 0.09490898996591568
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[729.7237]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 0.09583786129951477
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[731.0452]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 0.0802963376045227
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[735.2720]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 0.0808967724442482
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[741.7712]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 0.10101828724145889
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[743.7923]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 0.09370622783899307
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[737.0656]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 0.08472273498773575
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[733.7248]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 0.11381028592586517
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[730.5903]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 0.10600001364946365
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[731.2906]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 0.09320323169231415
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[734.2795]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 0.09449145197868347
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[734.3459]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 0.09144411981105804
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[737.0331]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 0.09631361067295074
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[734.2850]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 0.09334977716207504
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[734.1078]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 0.08214325457811356
+
+===> Finished Epoch 17 in 47.62 s <===
+
+Mean epoch pretrain loss: 9.237198037226335e-05
+Pre-Training is 36.0000 % complete
+
+===> Starting pre-train epoch 18 <===
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[729.5349]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 0.09052204340696335
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[725.4738]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 0.08003401756286621
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[723.5446]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 0.08109302818775177
+alpha:0.0
+alpha2:0.0
+Pot:tensor([[722.2685]], device='cuda:0', grad_fn=<AddBackward0>)
+Recon loss is 0.09909012913703918
