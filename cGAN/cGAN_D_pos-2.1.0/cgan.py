@@ -245,6 +245,16 @@ class Energy:
             energies = [energies]
         return energies
 
+# Define Colvar
+colvar = {
+    "name": "E2End Harm",
+    "fk": 1.0,
+    "cent_0": 12.0,
+    "cent_1": 34.0,
+    "T": 50000/50,
+    "group1": [3],
+    "group2": [98]
+}
 
 # Make Custom Dataset Object
 class SystemDataset(torch.utils.data.Dataset):
@@ -338,11 +348,12 @@ def update_pretrain(pretrain_optimizer, data, decoder, V_intro_epoch, dist_decli
         if count % int(bs/2) == 0:
             pretrain_training_data.append(px.view(num_atoms,3))
         count+=1
-        potential, _ = pred_sys.calc_energy(px.view(num_atoms,3,1), pt)
+        pred_sys = Energy(psf_file, parameter_file, colvar=colvar)
+        potential, my_phis = pred_sys.calc_energy(px.view(num_atoms,3,1), pt)
         total_pot += torch.div(torch.sum(torch.stack(
             [potential[0][key] for key in potential[0].keys() if not key == 'E2End Harm'])),bs)
-        total_pot += torch.div(torch.tensor(200.0).float().cuda()*potential[0]['E2End Harm'], bs
-        del px, pt
+        total_pot += torch.div(torch.tensor(200.0).float().cuda()*potential[0]['E2End Harm'], bs)
+        del px, potential, pt, my_phis, pred_sys
     dist_pred = torch.cdist(pred_x.view(bs,num_atoms,3),pred_x.view(bs,num_atoms,3))
     dist_target = torch.cdist(x.view(bs,num_atoms,3),x.view(bs,num_atoms,3))
     recon_loss = dis_factor*F.mse_loss(dist_pred, dist_target)
@@ -351,7 +362,7 @@ def update_pretrain(pretrain_optimizer, data, decoder, V_intro_epoch, dist_decli
     total_loss.backward()
     clipping_value = 1 # arbitrary value of your choosing
     torch.nn.utils.clip_grad_norm_(decoder.parameters(), clipping_value)
-    del total_pot, pred_x, potential, t
+    del total_pot, pred_x, recon_loss, dist_target, dist_pred, z, x,data, t
     return total_loss
 
 
@@ -373,7 +384,7 @@ def update_G(decoder, discriminator):
     # Update generator weights
     g_optimizer.step()
 
-    del t, fn, output, label, pred, label
+    del t, fn, output, label, pred
 
 
 def update_D(data, discriminator, decoder):
@@ -416,19 +427,21 @@ def update_G_net(decoder):
     '''
     # (3) Update G Network: minimize log(I(G(z)))
     '''
+    bs_gen = 8
     g_optimizer.zero_grad()
     # Generator
-    t, output, fn = decoder.generate(bs, num_frames)
-    output = output.view(bs,num_atoms*3).view(bs,num_atoms,3,1)
+    pt, output, fn = decoder.generate(bs_gen, num_frames)
+    output = output.view(bs_gen,num_atoms*3).view(bs_gen,num_atoms,3,1)
     # D(G(z)))
     total_pot = torch.zeros(1,1).cuda()
-    for out, t in zip(output, t):
-        potential, _ = pred_sys.calc_energy(out,t)
+    for out, t in zip(output, pt):
+        pred_sys = Energy(psf_file, parameter_file, colvar=colvar)
+        potential, my_phis = pred_sys.calc_energy(out,t)
         # print(t, potential[0]['E2End Harm'])
         total_pot += torch.div(torch.sum(torch.stack(
-            [potential[0][key] for key in potential[0].keys() if not key == 'E2End Harm'])),bs)
-        total_pot += torch.div(torch.tensor(200.0).float().cuda()*potential[0]['E2End Harm'], bs)
-        del out, t
+            [potential[0][key] for key in potential[0].keys() if not key == 'E2End Harm'])),bs_gen)
+        total_pot += torch.div(torch.tensor(200.0).float().cuda()*potential[0]['E2End Harm'], bs_gen)
+        del out, potential, t, my_phis, pred_sys
     print("Generator Potential", total_pot.item())
     iteration_potential_loss.append(total_pot.item())
     total_pot.backward()
@@ -436,7 +449,7 @@ def update_G_net(decoder):
     torch.nn.utils.clip_grad_norm_(decoder.parameters(), clipping_value)
     g_optimizer.step()
 
-    del t, output, potential, total_pot, fn
+    del pt, output, total_pot, fn
 
 
 ###
@@ -522,15 +535,15 @@ data_files_regex = './../../All_ML_Training_Data/210905_SMD_decaalanine/SMD/outp
 data_dir = "./../../V_Calculations/Test-6_full_system/data/"
 psf_file = "full_da-1.3.prmtop"  # This is a special psf file with improper connectivity deleted
 parameter_file = "full_da-1.3.prmtop" # bond, angles, dihedrals, electrostatics, lj; no 1-4, impropers or external
-colvar = {
-    "name": "E2End Harm",
-    "fk": 1.0,
-    "cent_0": 12.0,
-    "cent_1": 34.0,
-    "T": 50000/50,
-    "group1": [3],
-    "group2": [98]
-}
+# colvar = {
+#     "name": "E2End Harm",
+#     "fk": 1.0,
+#     "cent_0": 12.0,
+#     "cent_1": 34.0,
+#     "T": 50000/50,
+#     "group1": [3],
+#     "group2": [98]
+# }
 ###
 # Important pretrain Variables and Settings
 ###
@@ -549,10 +562,10 @@ g_learning_rate = 1e-3
 # Initalize BCELoss function
 ###
 criterion = nn.BCELoss()
-max_epochs_GAN = 12
+max_epochs_GAN = 1
 Ng = 1
 Nd = 1
-Ni = 5
+Ni = 1
 
 
 ###
@@ -586,7 +599,6 @@ pretrain_dataset = SystemDataset(psf_file, parameter_file, traj_files, colvar, p
 pretrain_dataloader = torch.utils.data.DataLoader(pretrain_dataset, batch_size=batch_size,
                         shuffle=True, num_workers=0)
 print("Pre-Training Dataset size:", len(pretrain_dataset))
-pred_sys = Energy(psf_file, parameter_file, colvar=colvar)
 learning_rate = 1e-2
 pretrain_optimizer = optim.Adam(decoder.parameters(), lr=learning_rate)
 pretrain_loss = []
@@ -603,7 +615,8 @@ for epoch in range(max_epochs_pre):
         epoch_pretrain_loss.append(total_loss.item())
         pretrain_optimizer.step()
         end = time.time()
-
+        del data
+    torch.cuda.empty_cache()
     l = np.mean(epoch_pretrain_loss)
     pretrain_loss.append(l)
     print(f"\n===> Finished Epoch {epoch} in {end-start:.2f} s <===\n")
@@ -616,6 +629,8 @@ save_data_xyz(pretrain_training_data, "pretrain_training_data.xyz")
 ###
 # Save model
 torch.save(decoder.state_dict(), 'pretrain-decoder.pt')
+
+del pretrain_dataset, pretrain_dataloader 
 
 # Plot
 plt.figure()
@@ -637,6 +652,7 @@ for t in range(max_generation_steps):
 
 save_data_xyz(predictions, "pretrain_generated.xyz")
 
+del predictions
 print("=> Finished Pre-Train Generation <=")
 
 print('Pretrain Done')
@@ -659,7 +675,6 @@ training_dataloader = torch.utils.data.DataLoader(training_dataset, batch_size=b
                         shuffle=True, num_workers=0)
 g_optimizer = optim.Adam(decoder.parameters(), lr=g_learning_rate)
 d_optimizer = optim.Adam(discriminator.parameters(),lr=d_learning_rate)
-pred_sys = Energy(psf_file, parameter_file, colvar=colvar)
 for epoch in range(max_epochs_GAN):
     epoch_generator_loss = []
     epoch_discriminator_loss = []
@@ -681,16 +696,18 @@ for epoch in range(max_epochs_GAN):
 
         epoch_discriminator_loss.append(np.mean(iteration_discriminator_loss))
 
-        for _ in range(Ni):
-            print("update_G_net")
-            update_G_net(decoder)
+        if i % 10 == 0:
+            for _ in range(Ni):
+                print("update_G_net")
+                update_G_net(decoder)
 
         epoch_potential_loss.append(np.mean(iteration_potential_loss))
-
+        del data
     print(f"Training is {100*(epoch+1)/max_epochs_GAN}% complete\nEpoch {epoch} took {time.time()-start} s")
     generator_loss.append(np.mean(epoch_generator_loss))
     discriminator_loss.append(np.mean(epoch_discriminator_loss))
     potential_loss.append(np.mean(epoch_potential_loss))
+    torch.cuda.empty_cache()
 print('Done')
 
 

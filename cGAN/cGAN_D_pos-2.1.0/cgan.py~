@@ -540,10 +540,10 @@ g_learning_rate = 1e-3
 # Initalize BCELoss function
 ###
 criterion = nn.BCELoss()
-max_epochs_GAN = 12
+max_epochs_GAN = 1
 Ng = 1
 Nd = 1
-Ni = 5
+Ni = 1
 
 
 ###
@@ -672,9 +672,10 @@ for epoch in range(max_epochs_GAN):
 
         epoch_discriminator_loss.append(np.mean(iteration_discriminator_loss))
 
-        for _ in range(Ni):
-            print("update_G_net")
-            update_G_net(decoder)
+        if i % 10 == 0:
+            for _ in range(Ni):
+                print("update_G_net")
+                update_G_net(decoder)
 
         epoch_potential_loss.append(np.mean(iteration_potential_loss))
 
