@@ -562,7 +562,7 @@ g_learning_rate = 1e-3
 # Initalize BCELoss function
 ###
 criterion = nn.BCELoss()
-max_epochs_GAN = 1
+max_epochs_GAN = 12
 Ng = 1
 Nd = 1
 Ni = 1
