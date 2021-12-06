@@ -1,0 +1,3 @@
+open pretrain_loss.png
+vmd194 -e loadall.tcl
+
