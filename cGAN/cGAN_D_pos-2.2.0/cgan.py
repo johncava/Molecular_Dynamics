@@ -395,7 +395,7 @@ def update_D(data, discriminator, decoder, noise_rate=0.3):
     true_label_smooth = torch.tensor(0.9).float().cuda()
     discriminator.zero_grad()
     label = torch.ones((bs,1)).float()
-    keys = random.choices(list(range(label.size()[0])),k=int(len(label.size()[0])*noise_rate))
+    keys = random.choices(list(range(label.size()[0])),k=int(label.size()[0]*noise_rate))
     label[keys] = 0.0
     label = label.cuda()
     label = true_label_smooth*label
@@ -417,8 +417,9 @@ def update_D(data, discriminator, decoder, noise_rate=0.3):
     pred = discriminator(t,output).squeeze(0)
     fake_label_smooth = torch.tensor(0.3).float().cuda()
     label = torch.zeros((bs,1)).float()
-    keys = random.choices(list(range(label.size()[0])),k=int(len(label.size()[0])*noise_rate))
+    keys = random.choices(list(range(label.size()[0])),k=int(label.size()[0]*noise_rate))
     label[keys] = 1.0
+    label = label.cuda()
     label = fake_label_smooth*label
     d_fake = criterion(pred, label)
     iteration_discriminator_loss.append(d_fake.item() + d_real.item())
