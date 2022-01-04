@@ -1,0 +1,24 @@
+# Log started on 11/25/2021 [mm/dd/yyyy] at 15:10:04
+chamber
+chamber -psf ./closed_formatted_autopsf.psf -crd ./closed_formatted.pdb -param ./par_all22_prot.prm -toppar ./top_all22_prot.rtf 
+exit
+# Log started on 11/25/2021 [mm/dd/yyyy] at 15:12:12
+chamber -psf ./closed_formatted_autopsf.psf -crd ./closed.pdb -param ./par_all22_prot.prm -toppar ./top_all22_prot.rtf 
+chamber -psf ./closed_formatted_autopsf.psf -crd ./closed.pdb -param ./par_all22_prot.prm -toppar ./top_all22_prot.rtf 
+chamber -psf ./closed_mod.psf -crd ./closed.pdb -param ./par_all22_prot.prm -toppar ./top_all22_prot.rtf 
+chamber -xpsf ./closed_formatted_autopsf.psf -crd ./closed.pdb -param ./par_all22_prot.prm -toppar ./top_all22_prot.rtf 
+chamber -xpsf ./closed_formatted_autopsf.psf -crd ./closed.pdb -param ./par_all22_prot.prm -toppar ./top_all22_prot.rtf 
+chamber 
+chamber --help
+chamber -h
+chamber -psf ./closed_formatted_autopsf.psf -crd ./closed.pdb -param ./par_all22_prot.prm -toppar ./top_all22_prot.rtf 
+chamber -psf ./closed_formatted_autopsf.psf -crd ./closed.pdb -param ./par_all22_prot.prm -toppar ./top_all22_prot.rtf 
+chamber -psf ./closed_formatted_autopsf.psf -crd ./closed.pdb -param ./par_all22_prot.prm -top ./top_all22_prot.rtf 
+chamber -psf ./closed_formatted_autopsf.psf -crd ./closed.pdb -param ../../../../agave_ADK_dRMSD/charmm/par_all36_prot.prm -top  ../../../../agave_ADK_dRMSD/charmm/top_all36_prot.rtf 
+outparm adk-1.0.prmtop
+ls
+exit
+# Log started on 01/04/2022 [mm/dd/yyyy] at 16:03:00
+chamber -psf protein.psf -crd alad.pdb -param par_all22_prot.prm -toppar top_all22_prot.rtf
+outparm diALA-1.0.prmtop
+exit
